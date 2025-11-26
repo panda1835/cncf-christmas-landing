@@ -10,7 +10,34 @@ export default function Partners() {
   ]
 
   return (
-    <section className="w-full py-12 md:py-16 px-4 md:px-8 bg-white relative overflow-hidden">
+    <section className="w-full py-12 md:py-16 px-4 md:px-8 bg-white relative overflow-hidden" style={{ position: 'relative', zIndex: 10 }}>
+      {/* Wavy Top Edge - SVG */}
+      <div style={{
+        position: 'absolute',
+        top: '-1px',
+        left: 0,
+        right: 0,
+        width: '100%',
+        overflow: 'hidden',
+        lineHeight: 0,
+        zIndex: 20
+      }}>
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          style={{
+            width: '100%',
+            height: '80px',
+            display: 'block'
+          }}
+        >
+          <path
+            d="M0,40 C150,0 350,0 600,40 C850,80 1050,80 1200,40 L1200,0 L0,0 Z"
+            fill="#C41E3A"
+          />
+        </svg>
+      </div>
+
       {/* Background image */}
       <div className="absolute inset-0 z-10">
         <Image
