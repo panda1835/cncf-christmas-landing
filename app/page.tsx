@@ -1,17 +1,14 @@
-
-import Header from '../components/Header'
-import Hero from '../components/Hero'
-import Pinetree from '../components/Pinetree'
-import Letter from '../components/Letter'
-import JoinUs from '../components/JoinUs'
-import CTA from '../components/CTA'
-import Partners from '../components/Partners'
-import Footer from '../components/Footer'
+import Hero from "../components/Hero";
+import Pinetree from "../components/Pinetree";
+import Letter from "../components/Letter";
+import JoinUs from "../components/JoinUs";
+import CTA from "../components/CTA";
+import Partners from "../components/Partners";
+import Footer from "../components/Footer";
 
 export default function Page() {
   return (
-    <div className=''>
-      <Header />
+    <div className="">
       <main>
         <Hero />
         <Pinetree />
@@ -22,5 +19,5 @@ export default function Page() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

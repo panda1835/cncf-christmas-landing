@@ -1,65 +1,25 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
 
 export default function Partners() {
-  const partners = [
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-  ]
+  const partners = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
 
   return (
-    <section className="w-full py-12 md:py-16 px-4 md:px-8 bg-white relative overflow-hidden" style={{ position: 'relative', zIndex: 10 }}>
-      {/* Wavy Top Edge - SVG */}
-      <div style={{
-        position: 'absolute',
-        top: '-1px',
-        left: 0,
-        right: 0,
-        width: '100%',
-        overflow: 'hidden',
-        lineHeight: 0,
-        zIndex: 20
-      }}>
-        <svg
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-          style={{
-            width: '100%',
-            height: '80px',
-            display: 'block'
-          }}
-        >
-          <path
-            d="M0,40 C150,0 350,0 600,40 C850,80 1050,80 1200,40 L1200,0 L0,0 Z"
-            fill="#C41E3A"
-          />
-        </svg>
-      </div>
-
-      {/* Background image */}
-      <div className="absolute inset-0 z-10">
-        <Image
-          src="/Partner-background.png"
-          alt="partners background"
-          fill
-          className="object-cover"
-          priority
-        />
-      </div>
-
-      {/* Top decorative wave */}
-      {/* <div className="absolute top-0 left-0 right-0 h-24 md:h-32 bg-linear-to-b from-red-600 to-transparent opacity-50 rounded-b-3xl"></div> */}
-
+    <section
+      className="w-full md:pb-16 px-4 md:px-8 bg-[#FFF3F3] relative overflow-hidden"
+      style={{
+        position: "relative",
+        zIndex: 0,
+      }}
+    >
       {/* Main content container */}
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Title with Santa */}
         <div className="flex flex-col items-center">
           {/* Decorative mistletoe above title */}
-          <div className="relative w-32 h-12 md:w-80 md:h-32">
+          <div className="relative w-32 h-12 md:w-80 md:h-20">
             <Image
-              src="/Partner-mistletoe.png"
+              src="/Partner-mistletoe.svg"
               alt="mistletoe"
               fill
               className="object-contain"
@@ -70,12 +30,12 @@ export default function Partners() {
           <div className="flex items-center justify-center gap-3 md:gap-6 flex-wrap">
             <h2
               style={{
-                textAlign: 'center',
-                color: '#7A0010',
-                fontSize: 'clamp(36px, 8vw, 64px)',
-                fontFamily: 'Lobster',
-                fontWeight: '400',
-                wordWrap: 'break-word',
+                textAlign: "center",
+                color: "#7A0010",
+                fontSize: "clamp(36px, 8vw, 64px)",
+                fontFamily: "Lobster",
+                fontWeight: "400",
+                wordWrap: "break-word",
               }}
             >
               Our Partner
@@ -117,9 +77,10 @@ export default function Partners() {
           {/* Partners grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-8 md:px-16">
             {partners.map((partner) => (
-              <div key={partner.id} className="flex flex-col items-center justify-center">
-                
-
+              <div
+                key={partner.id}
+                className="flex flex-col items-center justify-center"
+              >
                 {/* Partner card */}
                 <div className="relative w-full aspect-square max-w-xs">
                   <Image
@@ -146,5 +107,5 @@ export default function Partners() {
         </div>
       </div>
     </section>
-  )
+  );
 }
