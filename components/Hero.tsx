@@ -18,6 +18,7 @@ export default function Hero() {
           {/* Logo */}
           <div className="flex items-center justify-center sm:justify-start">
             <Image
+              unoptimized
               src="/Header-logo.svg"
               alt="A Thousand Wishes"
               width={180}
@@ -31,6 +32,7 @@ export default function Hero() {
             {/* Gift $10 Button (image) */}
             <button className="relative transition-transform hover:scale-105">
               <Image
+                unoptimized
                 src="/Gift-10-button.png"
                 alt="Gift a $10 Gift"
                 width={150}
@@ -72,20 +74,30 @@ export default function Hero() {
           ))}
         </div>
 
-        {/* Decorative Background Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-1/2 left-1/4 w-96 h-96 rounded-full bg-red-900 blur-3xl transform -translate-y-1/2" />
-          <div className="absolute top-1/2 right-1/4 w-96 h-96 rounded-full bg-red-900 blur-3xl transform -translate-y-1/2" />
-        </div>
-
         {/* HERO CONTENT */}
-        <div className="relative max-w-7xl mx-auto px-6 pt-10 pb-0">
+        <div className="relative max-w-7xl mx-auto px-6 pt-10 md:pt-0 pb-0">
           {/* Main Heading */}
           <div className="text-center mb-6">
-            <h1 className="font-lobster text-5xl md:text-6xl lg:text-7xl text-yellow-300 leading-tight mb-4">
+            <h1
+              className="font-lobster text-5xl md:text-6xl lg:text-7xl leading-tight mb-2 bg-clip-text text-transparent"
+              style={{
+                backgroundImage: "linear-gradient(to bottom, #FBE67B, #FCFBE7)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+              }}
+            >
               Help a Child&apos;s Wish
-              <br />
-              <span className="text-yellow-400">Sparkle This Christmas.</span>
+            </h1>
+
+            <h1
+              className="font-lobster text-5xl md:text-6xl lg:text-7xl leading-tight mb-4 bg-clip-text text-transparent"
+              style={{
+                backgroundImage: "linear-gradient(to bottom, #F7D14E, #D4A041)",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+              }}
+            >
+              Sparkle This Christmas.
             </h1>
           </div>
 
@@ -101,7 +113,7 @@ export default function Hero() {
           </div>
 
           {/* CTA Buttons in Hero */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="bg-[#D62828] hover:bg-[#b91c1c] text-white font-be-vietnam font-bold px-8 py-3 rounded-full text-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-2 border-[#F2CC8F]">
               Make A Wish Come True
             </button>
@@ -111,50 +123,50 @@ export default function Hero() {
           </div>
 
           {/* Hero Characters and Scene */}
-          <div className="relative h-[300px] md:h-[300px]">
-            {/* Main Character - Santa and Kids */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl flex justify-center items-end">
-              {/* Kid 1 (left) */}
-              <div
-                className="absolute bottom-0 left-0 z-10 animate-float"
-                style={{ animationDelay: "0.5s" }}
-              >
-                <Image
-                  src="/Hero-kid1.png"
-                  alt="Child 1"
-                  width={120}
-                  height={150}
-                  className="w-auto h-40 md:h-48"
-                />
-              </div>
+          <div className="relative h-[300px] md:h-[400px] flex items-center">
+            {/* Kid 1 (left) */}
+            <div
+              className="absolute -left-20 -top-50 z-10 animate-float"
+              style={{ animationDelay: "0.5s" }}
+            >
+              <Image
+                unoptimized
+                src="/Hero-kid1.png"
+                alt="Child 1"
+                width={120}
+                height={150}
+                className="w-auto h-40 md:h-[500px]"
+              />
+            </div>
 
-              {/* Santa */}
-              <div
-                className="relative z-10 animate-float"
-                style={{ animationDelay: "0s" }}
-              >
-                <Image
-                  src="/Hero-character.svg"
-                  alt="Santa and Snow Globe"
-                  width={300}
-                  height={300}
-                  className="w-auto h-64 md:h-80"
-                />
-              </div>
+            {/* Santa - Center */}
+            <div
+              className="absolute left-1/2 transform -translate-x-1/2 z-10 animate-float"
+              style={{ animationDelay: "0s" }}
+            >
+              <Image
+                unoptimized
+                src="/Hero-character.svg"
+                alt="Santa and Snow Globe"
+                width={300}
+                height={300}
+                className="w-auto h-64 md:h-80"
+              />
+            </div>
 
-              {/* Kid 2 (right) */}
-              <div
-                className="absolute bottom-0 right-0 z-10 animate-float"
-                style={{ animationDelay: "1s" }}
-              >
-                <Image
-                  src="/Hero-kid2.png"
-                  alt="Child 2"
-                  width={120}
-                  height={150}
-                  className="w-auto h-40 md:h-48"
-                />
-              </div>
+            {/* Kid 2 (right) */}
+            <div
+              className="absolute -right-20 -top-50 z-10 animate-float"
+              style={{ animationDelay: "1s" }}
+            >
+              <Image
+                unoptimized
+                src="/Hero-kid2.png"
+                alt="Child 2"
+                width={120}
+                height={150}
+                className="w-auto h-40 md:h-[500px]"
+              />
             </div>
           </div>
         </div>

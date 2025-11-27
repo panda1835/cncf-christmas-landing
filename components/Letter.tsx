@@ -120,6 +120,7 @@ export default function Letter() {
           }}
         >
           <Image
+            unoptimized
             src="/Letter-title.svg"
             alt="Our Story"
             width={280}
@@ -151,6 +152,7 @@ export default function Letter() {
           {/* Envelope Background */}
           <div className="relative w-full h-[280px] overflow-hidden filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
             <Image
+              unoptimized
               src="/Letter-background.png"
               alt="Christmas Envelope"
               width={1200}
@@ -172,6 +174,7 @@ export default function Letter() {
             }}
           >
             <Image
+              unoptimized
               src="/Letter-letter.svg"
               alt="Letter Content"
               width={500}

@@ -86,6 +86,7 @@ export default function JoinUs() {
         >
           <div style={{ position: "relative", width: "280px", height: "80px" }}>
             <Image
+              unoptimized
               src="/Joinus-header.svg"
               alt="Join With Us"
               fill
@@ -130,6 +131,7 @@ export default function JoinUs() {
               }}
             >
               <Image
+                unoptimized
                 src="/Joinus-star.png"
                 alt="star"
                 fill
@@ -151,6 +153,7 @@ export default function JoinUs() {
               }}
             >
               <Image
+                unoptimized
                 src="/Joinus-image1.png"
                 alt="Offline Wish Trees"
                 fill
@@ -171,6 +174,7 @@ export default function JoinUs() {
               }}
             >
               <Image
+                unoptimized
                 src="/Joinus-bell.png"
                 alt="decoration"
                 fill
@@ -367,6 +371,7 @@ export default function JoinUs() {
               }}
             >
               <Image
+                unoptimized
                 src="/Joinus-bell.png"
                 alt="bell"
                 fill
@@ -388,6 +393,7 @@ export default function JoinUs() {
               }}
             >
               <Image
+                unoptimized
                 src="/Joinus-image2.png"
                 alt="Online Donations"
                 fill
@@ -407,6 +413,7 @@ export default function JoinUs() {
               }}
             >
               <Image
+                unoptimized
                 src="/Joinus-star.png"
                 alt="star"
                 fill

@@ -1,20 +1,20 @@
-import React from 'react'
-import Image from 'next/image'
+import React from "react";
+import Image from "next/image";
 
 export default function Header() {
   return (
     <header className="bg-transparent relative z-50">
       {/* Horizontal Line */}
       <div className="absolute inset-0 flex items-center">
-        <div className="w-full border-t w-20 border-gray-200" />
+        <div className="w-full border-t border-gray-200" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-
           {/* LOGO sits above the line */}
           <div className="relative z-10 bg-transparent px-4">
             <Image
+              unoptimized
               src="/Header-logo.svg"
               alt="A Thousand Wishes"
               width={180}
@@ -28,6 +28,7 @@ export default function Header() {
             {/* Gift $10 Button */}
             <button className="transition-transform hover:scale-105">
               <Image
+                unoptimized
                 src="/Gift-10-button.png"
                 alt="Gift a $10 Gift"
                 width={150}
@@ -44,5 +45,5 @@ export default function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }
