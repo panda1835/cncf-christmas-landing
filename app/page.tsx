@@ -1,5 +1,4 @@
 import Hero from "../components/Hero";
-import Pinetree from "../components/Pinetree";
 import Letter from "../components/OurStory";
 import JoinUs from "../components/JoinUs";
 import CTA from "../components/CTA";
@@ -11,7 +10,6 @@ export default function Page() {
     <div className="">
       <main>
         <Hero />
-        {/* <Pinetree /> */}
         <Letter />
         <JoinUs />
         <CTA />
