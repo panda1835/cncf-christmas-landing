@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 
@@ -38,7 +40,10 @@ export default function Header() {
             </button>
 
             {/* Make a Wish Button */}
-            <button className="inline-flex items-center justify-center bg-[#009c8a] hover:bg-[#008272] text-white font-be-vietnam font-semibold text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.15)] transition-transform hover:scale-105">
+            <button 
+              onClick={() => document.getElementById('join-us')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center justify-center bg-[#009c8a] hover:bg-[#008272] text-white font-be-vietnam font-semibold text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.15)] transition-transform hover:scale-105"
+            >
               Make a Wish Come True
             </button>
           </div>

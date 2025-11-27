@@ -14,10 +14,9 @@ export default function Letter() {
         flexDirection: "column",
         alignItems: "center",
         // justifyContent: "center",
-        minHeight: "100vh",
         zIndex: 10,
       }}
-      className="pt-16"
+      className="pt-8 md:pt-16 min-h-[600px] md:min-h-screen"
     >
       {/* Bokeh Background Effect */}
       <div
@@ -106,40 +105,74 @@ export default function Letter() {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          // maxWidth: "900px",
           width: "100%",
           height: "100%",
+          flex: 1,
         }}
-        // className="h-full flex flex-col justify-end"
       >
-        {/* "Our Story" Title Banner */}
+        {/* Top Section - Title and Letter */}
         <div
           style={{
-            marginBottom: "2rem",
-            animation: "fadeInDown 1s ease-out",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            width: "100%",
+            zIndex: 2,
           }}
         >
-          <Image
-            unoptimized
-            src="/Letter-title.svg"
-            alt="Our Story"
-            width={280}
-            height={80}
+          {/* "Our Story" Title Banner */}
+          <div
+            className="mb-4 md:mb-8"
             style={{
-              filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))",
-              animation: "gentle-sway 3s ease-in-out infinite",
+              animation: "fadeInDown 1s ease-out",
             }}
-          />
+          >
+            <Image
+              unoptimized
+              src="/Letter-title.svg"
+              alt="Our Story"
+              width={280}
+              height={80}
+              style={{
+                filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))",
+                animation: "gentle-sway 3s ease-in-out infinite",
+              }}
+            />
+          </div>
+
+          {/* Letter Content */}
+          <div
+            style={{
+              animation: "letterSlideIn 1.2s ease-out 0.6s backwards",
+            }}
+            className="w-full max-w-[800px] md:max-w-[600px] px-4"
+          >
+            <Image
+              unoptimized
+              src="/Letter-letter.svg"
+              alt="Letter Content"
+              width={800}
+              height={640}
+              style={{
+                width: "100%",
+                height: "auto",
+                filter: "drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2))",
+              }}
+            />
+          </div>
         </div>
-        <div className="h-full"></div>
-        {/* Envelope Container */}
+
+        {/* Envelope Background - Positioned at bottom */}
         <div
           style={{
-            position: "relative",
-
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
             animation: "fadeInUp 1s ease-out 0.3s backwards",
             transition: "transform 0.3s ease",
             cursor: "pointer",
+            zIndex: 1,
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "scale(1.02) translateY(-8px)";
@@ -149,41 +182,14 @@ export default function Letter() {
           }}
           className="w-full"
         >
-          {/* Envelope Background */}
-          <div className="relative w-full h-[280px] overflow-hidden filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+          <div className="relative w-full h-[180px] sm:h-[320px] md:h-[360px] overflow-hidden filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
             <Image
               unoptimized
               src="/Letter-background.png"
               alt="Christmas Envelope"
               width={1200}
-              height={280}
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Letter Content Overlay */}
-          <div
-            style={{
-              position: "absolute",
-              top: "15%",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "70%",
-              maxWidth: "500px",
-              animation: "letterSlideIn 1.2s ease-out 0.6s backwards",
-            }}
-          >
-            <Image
-              unoptimized
-              src="/Letter-letter.svg"
-              alt="Letter Content"
-              width={500}
-              height={400}
-              style={{
-                width: "100%",
-                height: "auto",
-                filter: "drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2))",
-              }}
+              height={360}
+              className="w-full h-full object-cover object-bottom"
             />
           </div>
         </div>

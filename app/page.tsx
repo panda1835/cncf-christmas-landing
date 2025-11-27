@@ -1,6 +1,6 @@
 import Hero from "../components/Hero";
 import Pinetree from "../components/Pinetree";
-import Letter from "../components/Letter";
+import Letter from "../components/OurStory";
 import JoinUs from "../components/JoinUs";
 import CTA from "../components/CTA";
 import Partners from "../components/Partners";
@@ -11,7 +11,7 @@ export default function Page() {
     <div className="">
       <main>
         <Hero />
-        <Pinetree />
+        {/* <Pinetree /> */}
         <Letter />
         <JoinUs />
         <CTA />

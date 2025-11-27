@@ -211,6 +211,7 @@ export default function CTA() {
                 Make a Wish Come True
               </h3>
               <button
+                onClick={() => document.getElementById('pinetree')?.scrollIntoView({ behavior: 'smooth' })}
                 style={{
                   background:
                     "linear-gradient(90deg, #004D40 0%, #00B395 100%)",

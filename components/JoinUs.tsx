@@ -5,6 +5,7 @@ import Image from "next/image";
 export default function JoinUs() {
   return (
     <section
+      id="join-us"
       style={{
         backgroundImage: "url('/Background.svg')",
         padding: "4rem 2rem",
@@ -172,6 +173,7 @@ export default function JoinUs() {
                 height: "140px",
                 zIndex: 2,
               }}
+              className="hidden md:flex"
             >
               <Image
                 unoptimized
