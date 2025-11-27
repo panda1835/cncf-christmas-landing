@@ -1,8 +1,11 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import Modal from "./Modal";
 
 export default function JoinUs() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section
       id="join-us"
@@ -118,6 +121,7 @@ export default function JoinUs() {
               flex: "1 1 400px",
               minWidth: "300px",
               maxWidth: "500px",
+              marginBottom: "0",
             }}
           >
             {/* Star Decoration - Top Left */}
@@ -195,12 +199,12 @@ export default function JoinUs() {
           >
             <h2
               style={{
-                fontSize: "clamp(28px, 5vw, 40px)",
                 fontFamily: "var(--font-lobster)",
                 fontWeight: "400",
                 margin: "0 0 1.5rem 0",
                 color: "#FFD700",
               }}
+              className="text-4xl"
             >
               Offline - Wish Trees
             </h2>
@@ -209,23 +213,23 @@ export default function JoinUs() {
               style={{
                 listStyle: "none",
                 padding: 0,
-                fontSize: "clamp(14px, 2.5vw, 18px)",
                 fontFamily: "var(--font-be-vietnam)",
-                lineHeight: "1.8",
                 margin: "0 0 2rem 0",
               }}
+              className="text-lg"
             >
               <li style={{ marginBottom: "0.75rem" }}>
                 • Visit our partner restaurants, cafés, hotels and spas across
                 Ho Chi Minh City.
               </li>
               <li>
-                • Choose a child's wish from the tree, buy the gift, wrap it,
-                attach the wish card and return it before December 20.
+                • Choose a child&apos;s wish from the tree, buy the gift, wrap
+                it, attach the wish card and return it before December 20.
               </li>
             </ul>
 
             <button
+              onClick={() => setIsModalOpen(true)}
               style={{
                 width: "288px",
                 height: "64px",
@@ -256,7 +260,7 @@ export default function JoinUs() {
                   "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
               }}
             >
-              All Locations
+              See All Locations
             </button>
           </div>
         </div>
@@ -280,39 +284,45 @@ export default function JoinUs() {
               textAlign: "left",
               order: 1,
             }}
+            className=""
           >
             <h2
               style={{
-                fontSize: "clamp(28px, 5vw, 40px)",
                 fontFamily: "var(--font-lobster)",
                 fontWeight: "400",
                 margin: "0 0 1.5rem 0",
                 color: "#FFD700",
               }}
+              className="text-4xl"
             >
               Online - Donations
             </h2>
 
             <div
               style={{
-                fontSize: "clamp(14px, 2.5vw, 18px)",
                 fontFamily: "var(--font-be-vietnam)",
-                lineHeight: "1.8",
                 margin: "0 0 2rem 0",
               }}
+              className="text-lg"
             >
               <p style={{ marginBottom: "1rem" }}>
-                • Even from miles away, you can light up a child's world. Your
-                online gift wraps a child in joy, love and the hope of a
+                • Even from miles away, you can light up a child&apos;s world.
+                Your online gift wraps a child in joy, love and the hope of a
                 brighter tomorrow.
               </p>
               <p style={{ marginBottom: "0" }}>
-                • "Visit{" "}
-                <strong style={{ color: "#FFD700" }}>
-                  www.cncf.org/donate
-                </strong>{" "}
-                to explore CNCF's work and help us bring brighter futures to the
-                children we serve."
+                • Visit{" "}
+                <a
+                  style={{ color: "#FFD700" }}
+                  href="https://www.cncf.org"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  className="hover:underline"
+                >
+                  www.cncf.org
+                </a>{" "}
+                to explore CNCF&apos;s work and help us bring brighter futures
+                to the children we serve.
               </p>
             </div>
 
@@ -336,6 +346,7 @@ export default function JoinUs() {
                 cursor: "pointer",
                 transition: "all 0.3s ease",
               }}
+              onClick={() => window.open("https://www.cncf.org", "_blank")}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow =
@@ -347,7 +358,7 @@ export default function JoinUs() {
                   "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
               }}
             >
-              Go Our Website
+              Visit Our Website
             </button>
           </div>
 
@@ -366,7 +377,7 @@ export default function JoinUs() {
               style={{
                 position: "absolute",
                 top: "-30px",
-                right: "5%",
+                left: "5%",
                 width: "100px",
                 height: "100px",
                 zIndex: 2,
@@ -408,7 +419,7 @@ export default function JoinUs() {
               style={{
                 position: "absolute",
                 bottom: "-40px",
-                left: "10%",
+                right: "10%",
                 width: "90px",
                 height: "90px",
                 zIndex: 2,
@@ -447,18 +458,52 @@ export default function JoinUs() {
         @media (max-width: 768px) {
           section > div > div:nth-child(2) {
             flex-direction: column !important;
+            gap: 0.5rem !important;
+            margin-bottom: 1rem !important;
+          }
+          section > div > div:nth-child(2) > div:first-child {
+            max-width: 100% !important;
+            margin-bottom: 0 !important;
+            flex: 1 1 100% !important;
+          }
+          section
+            > div
+            > div:nth-child(2)
+            > div:first-child
+            > div:nth-child(3) {
+            display: none !important;
+          }
+          section > div > div:nth-child(2) > div:last-child {
+            margin-top: 0 !important;
           }
           section > div > div:nth-child(3) {
             flex-direction: column !important;
+            gap: 0.5rem !important;
+            margin-top: 1rem !important;
           }
           section > div > div:nth-child(3) > div:first-child {
             order: 2 !important;
+            margin-top: 0 !important;
           }
           section > div > div:nth-child(3) > div:last-child {
             order: 1 !important;
+            max-width: 100% !important;
+            margin-bottom: 0 !important;
+            flex: 1 1 100% !important;
+          }
+          section > div > div:nth-child(3) > div:last-child > div:nth-child(1) {
+            display: none !important;
           }
         }
       `}</style>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="All Locations"
+      >
+        <p>This is a placeholder for the locations list. Coming soon!</p>
+      </Modal>
     </section>
   );
 }

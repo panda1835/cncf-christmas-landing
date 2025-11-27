@@ -1,7 +1,10 @@
+"use client";
 import Image from "next/image";
-import React from "react";
-import Link from "next/link";
+import { useState } from "react";
+import Modal from "./Modal";
+
 export default function Footer() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <footer className="bg-[#173f35] text-[#f1f6f4] font-be-vietnam">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
@@ -29,7 +32,25 @@ export default function Footer() {
           </div>
 
           {/* Gift Button */}
-          <div className="shrink-0">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: 0,
+              transition: "transform 0.3s ease, opacity 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.05)";
+              e.currentTarget.style.opacity = "0.9";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.opacity = "1";
+            }}
+            className="shrink-0"
+          >
             <Image
               unoptimized
               src="/Gift-10-button.png"
@@ -37,7 +58,7 @@ export default function Footer() {
               width={150}
               height={50}
             />
-          </div>
+          </button>
         </div>
 
         {/* Main Content: Contact, About, Get Involved, Resources */}
@@ -145,7 +166,7 @@ export default function Footer() {
             <h3 className="font-bold text-white text-lg mb-3 text-center sm:text-left">
               About us
             </h3>
-            <ul className="space-y-1 text-sm text-[#c9d3cb] text-center sm:text-left">
+            <ul className="space-y-1 text-md text-[#c9d3cb] text-center sm:text-left">
               <li>
                 •{" "}
                 <a
@@ -176,7 +197,7 @@ export default function Footer() {
             <h3 className="font-bold text-white text-lg mb-3 text-center sm:text-left">
               Get Involved
             </h3>
-            <ul className="space-y-1 text-sm text-[#c9d3cb] text-center sm:text-left">
+            <ul className="space-y-1 text-md text-[#c9d3cb] text-center sm:text-left">
               <li>
                 •{" "}
                 <a
@@ -218,12 +239,20 @@ export default function Footer() {
         <div className="border-t border-white/10 my-6" />
 
         {/* Copyright */}
-        <div className="text-center text-[11px] sm:text-xs text-[#c9d3cb] leading-relaxed">
+        <div className="text-center text-sm sm:text-md text-[#c9d3cb] leading-relaxed">
           © 2025 CNCF - A Thousand Wishes. All Rights Reserved.
           <br />
           Made with Love to bring joy to children across Vietnam.
         </div>
       </div>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Gift $10"
+      >
+        <p>This is a placeholder for the $10 gift donation. Coming soon!</p>
+      </Modal>
     </footer>
   );
 }

@@ -6,7 +6,7 @@ export default function Partners() {
 
   return (
     <section
-      className="w-full md:pb-16 px-4 md:px-8 bg-[#FFF3F3] relative overflow-hidden"
+      className="w-full pb-16 px-4 md:px-8 bg-[#FFF3F3] relative overflow-hidden"
       style={{
         position: "relative",
         zIndex: 0,
@@ -17,7 +17,7 @@ export default function Partners() {
         {/* Title with Santa */}
         <div className="flex flex-col items-center">
           {/* Decorative mistletoe above title */}
-          <div className="relative w-32 h-12 md:w-80 md:h-20">
+          <div className="relative w-96 h-20 md:w-80 md:h-20">
             <Image
               unoptimized
               src="/Partner-mistletoe.svg"
@@ -57,7 +57,7 @@ export default function Partners() {
         {/* Partners section with decorative elements */}
         <div className="relative">
           {/* Left chain decoration */}
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-32 md:w-40 md:h-40 -ml-4 md:-ml-28">
+          <div className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 w-8 h-32 md:w-40 md:h-40 -ml-4 md:-ml-28">
             <Image
               unoptimized
               src="/Partner-chainleft.svg"
@@ -68,7 +68,7 @@ export default function Partners() {
           </div>
 
           {/* Right chain decoration */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 md:w-40 md:h-40 -mr-4 md:-mr-28">
+          <div className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 md:w-40 md:h-40 -mr-4 md:-mr-28">
             <Image
               unoptimized
               src="/Partner-chainright.svg"

@@ -7,7 +7,31 @@ export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
   const [hasShownWelcome, setHasShownWelcome] = useState(false);
+  const [sprinkles, setSprinkles] = useState<
+    Array<{
+      id: string;
+      left: number;
+      top: number;
+      delay: number;
+      duration: number;
+      rotation: number;
+    }>
+  >([]);
   const pinetreeRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Generate sprinkles once on mount - across entire page
+    const allSprinkles = [...Array(80)].map((_, i) => ({
+      id: `sprinkle-${i}`,
+      left: Math.random() * 100,
+      top: -(Math.random() * 20),
+      delay: Math.random() * 5,
+      duration: 6 + Math.random() * 8,
+      rotation: Math.random() * 45,
+    }));
+
+    setSprinkles(allSprinkles);
+  }, []);
 
   useEffect(() => {
     // Set up intersection observer to detect when pine tree is in view
@@ -22,7 +46,7 @@ export default function Hero() {
         });
       },
       {
-        threshold: 0.3, // Trigger when 30% of the pine tree is visible
+        threshold: 0.6, // Trigger when 30% of the pine tree is visible
       }
     );
 
@@ -62,7 +86,7 @@ export default function Hero() {
           </div>
 
           {/* Right Buttons */}
-          <div className="flex items-center gap-3 sm:gap-4 hidden md:flex">
+          <div className="items-center gap-3 sm:gap-4 hidden">
             {/* Gift $10 Button (image) */}
             <button className="relative transition-transform hover:scale-105">
               <Image
@@ -70,15 +94,19 @@ export default function Hero() {
                 src="/Gift-10-button.png"
                 alt="Gift a $10 Gift"
                 width={150}
-                height={50}
-                className="h-11 sm:h-12 w-auto"
+                height={100}
+                className="h-22 w-auto cursor-pointer"
               />
             </button>
 
             {/* Make a Wish Come True Button */}
-            <button 
-              onClick={() => document.getElementById('join-us')?.scrollIntoView({ behavior: 'smooth' })}
-              className=" inline-flex items-center justify-center bg-[#009c8a] hover:bg-[#008272] text-white font-be-vietnam font-semibold text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.18)] transition-transform hover:scale-105"
+            <button
+              onClick={() =>
+                document
+                  .getElementById("join-us")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="cursor-pointer inline-flex items-center justify-center bg-[#009c8a] hover:bg-[#008272] text-white font-be-vietnam font-semibold text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.18)] transition-transform hover:scale-105"
             >
               Make a Wish Come True
             </button>
@@ -105,6 +133,30 @@ export default function Hero() {
                 className="w-1 h-1 bg-white rounded-full opacity-80"
                 style={{
                   boxShadow: "0 0 3px rgba(255, 255, 255, 0.8)",
+                }}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Yellow Sprinkles - Across Full Page */}
+        <div className="absolute hidden sm:flex inset-0 pointer-events-none">
+          {sprinkles.map((s) => (
+            <div
+              key={s.id}
+              className="absolute animate-sprinkle-fall"
+              style={{
+                left: `${s.left}%`,
+                top: `${s.top}%`,
+                animationDelay: `${s.delay}s`,
+                animationDuration: `${s.duration}s`,
+              }}
+            >
+              <div
+                className="w-2 h-0.5 bg-yellow-300 rounded-full opacity-70"
+                style={{
+                  boxShadow: "0 0 4px rgba(255, 235, 59, 0.8)",
+                  transform: `rotate(${s.rotation}deg)`,
                 }}
               />
             </div>
@@ -151,22 +203,34 @@ export default function Hero() {
 
           {/* CTA Buttons in Hero */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button 
-              onClick={() => document.getElementById('join-us')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-[#D62828] hover:bg-[#b91c1c] text-white font-be-vietnam font-bold px-8 py-3 rounded-full text-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-2 border-[#F2CC8F]"
+            <button
+              onClick={() =>
+                document
+                  .getElementById("join-us")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="cursor-pointer bg-[#D62828] hover:bg-[#b91c1c] text-white font-be-vietnam font-bold px-8 py-3 rounded-full text-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-4 border-[#F2CC8F]"
             >
               Make A Wish Come True
             </button>
-            <button 
-              onClick={() => document.getElementById('pinetree')?.scrollIntoView({ behavior: 'smooth' })}
-              className="bg-[#F2CC8F] hover:bg-[#e0bd84] text-white font-be-vietnam font-bold px-8 py-3 rounded-full text-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl"
+            <button
+              onClick={() =>
+                document
+                  .getElementById("pinetree")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="cursor-pointer bg-[#C69E47] hover:bg-[#C69E47] text-white font-be-vietnam font-bold px-8 py-3 rounded-full text-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-[#F2CC8F] border-4"
             >
               Discover the Wishes
             </button>
           </div>
 
           {/* Hero Characters and Scene */}
-          <div id="pinetree" ref={pinetreeRef} className="relative w-full mt-20 md:mt-40">
+          <div
+            id="pinetree"
+            ref={pinetreeRef}
+            className="relative w-full mt-20 md:mt-40"
+          >
             {/* Pinetree - Full Width, determines container height */}
             <div className="relative w-full z-5">
               <Image
@@ -196,7 +260,7 @@ export default function Hero() {
 
             {/* Kid 1 (left) */}
             <div
-              className="absolute left-4 md:left-1/9 top-0 md:-top-1/2 z-0 animate-float"
+              className="absolute left-2 md:left-1/9 -top-4/3 md:-top-1/4 z-0 animate-float"
               style={{ animationDelay: "0.5s" }}
             >
               <Image
@@ -205,13 +269,13 @@ export default function Hero() {
                 alt="Child 1"
                 width={120}
                 height={150}
-                className="w-auto h-32 md:h-64 lg:h-90"
+                className="w-auto h-40 md:h-64 lg:h-90"
               />
             </div>
 
             {/* Kid 2 (right) */}
             <div
-              className="absolute right-4 md:right-1/9 top-0 md:-top-1/3 z-0 animate-float"
+              className="absolute right-4 md:right-1/9 -top-8/9 md:-top-1/3 z-0 animate-float"
               style={{ animationDelay: "1s" }}
             >
               <Image
@@ -220,7 +284,7 @@ export default function Hero() {
                 alt="Child 2"
                 width={120}
                 height={150}
-                className="w-auto h-32 md:h-64 lg:h-90"
+                className="w-auto h-40 md:h-64 lg:h-90"
               />
             </div>
 
@@ -230,7 +294,10 @@ export default function Hero() {
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand"></div>
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand" style={{ animationDelay: "0.8s" }}></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand"
+                    style={{ animationDelay: "0.8s" }}
+                  ></div>
                 </div>
                 {/* Star */}
                 <button
@@ -254,8 +321,14 @@ export default function Hero() {
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand" style={{ animationDelay: "0.3s" }}></div>
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand" style={{ animationDelay: "1.1s" }}></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand"
+                    style={{ animationDelay: "0.3s" }}
+                  ></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand"
+                    style={{ animationDelay: "1.1s" }}
+                  ></div>
                 </div>
                 {/* Star */}
                 <button
@@ -280,8 +353,14 @@ export default function Hero() {
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand" style={{ animationDelay: "0.6s" }}></div>
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand" style={{ animationDelay: "1.4s" }}></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand"
+                    style={{ animationDelay: "0.6s" }}
+                  ></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand"
+                    style={{ animationDelay: "1.4s" }}
+                  ></div>
                 </div>
                 {/* Star */}
                 <button
@@ -306,8 +385,14 @@ export default function Hero() {
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand" style={{ animationDelay: "0.9s" }}></div>
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand" style={{ animationDelay: "1.7s" }}></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand"
+                    style={{ animationDelay: "0.9s" }}
+                  ></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand"
+                    style={{ animationDelay: "1.7s" }}
+                  ></div>
                 </div>
                 {/* Star */}
                 <button
@@ -333,8 +418,14 @@ export default function Hero() {
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand" style={{ animationDelay: "0.2s" }}></div>
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand" style={{ animationDelay: "1.0s" }}></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand"
+                    style={{ animationDelay: "0.2s" }}
+                  ></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand"
+                    style={{ animationDelay: "1.0s" }}
+                  ></div>
                 </div>
                 {/* Star */}
                 <button
@@ -359,8 +450,14 @@ export default function Hero() {
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand" style={{ animationDelay: "0.5s" }}></div>
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand" style={{ animationDelay: "1.3s" }}></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand"
+                    style={{ animationDelay: "0.5s" }}
+                  ></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand"
+                    style={{ animationDelay: "1.3s" }}
+                  ></div>
                 </div>
                 {/* Star */}
                 <button
@@ -385,8 +482,14 @@ export default function Hero() {
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand" style={{ animationDelay: "0.7s" }}></div>
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand" style={{ animationDelay: "1.5s" }}></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand"
+                    style={{ animationDelay: "0.7s" }}
+                  ></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand"
+                    style={{ animationDelay: "1.5s" }}
+                  ></div>
                 </div>
                 {/* Star */}
                 <button
@@ -411,8 +514,14 @@ export default function Hero() {
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand" style={{ animationDelay: "1.0s" }}></div>
-                  <div className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand" style={{ animationDelay: "1.8s" }}></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-300 opacity-40 animate-aura-expand"
+                    style={{ animationDelay: "1.0s" }}
+                  ></div>
+                  <div
+                    className="absolute w-15 h-15 md:w-18 md:h-18 rounded-full bg-yellow-200 opacity-30 animate-aura-expand"
+                    style={{ animationDelay: "1.8s" }}
+                  ></div>
                 </div>
                 {/* Star */}
                 <button
@@ -493,7 +602,10 @@ export default function Hero() {
               <div className="absolute -top-4 -left-4 text-yellow-400 text-4xl animate-spin-slow">
                 ⭐
               </div>
-              <div className="absolute -top-2 -right-2 text-yellow-300 text-3xl animate-spin-slow" style={{ animationDelay: "0.5s" }}>
+              <div
+                className="absolute -top-2 -right-2 text-yellow-300 text-3xl animate-spin-slow"
+                style={{ animationDelay: "0.5s" }}
+              >
                 ✨
               </div>
               <div className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 text-yellow-400 text-3xl animate-bounce">
@@ -527,10 +639,15 @@ export default function Hero() {
                   ✨ Welcome to the Wishing Tree! ✨
                 </h2>
                 <p className="font-be-vietnam text-gray-700 text-lg leading-relaxed mb-6">
-                  Every sparkling ornament on this magical tree holds a child&apos;s heartfelt Christmas wish.
+                  Every sparkling ornament on this magical tree holds a
+                  child&apos;s heartfelt Christmas wish.
                   <br />
                   <br />
-                  <span className="text-red-600 font-semibold">Click on the golden stars</span> to discover their dreams and help make this Christmas truly special! 🎄💫
+                  <span className="text-red-600 font-semibold">
+                    Click on the golden stars
+                  </span>{" "}
+                  to discover their dreams and help make this Christmas truly
+                  special! 🎄💫
                 </p>
                 <button
                   onClick={closeWelcomeModal}
@@ -561,8 +678,26 @@ export default function Hero() {
             }
           }
 
+          @keyframes sprinkle-fall {
+            0% {
+              transform: translateY(0) rotate(0deg);
+              opacity: 0;
+            }
+            10% {
+              opacity: 1;
+            }
+            90% {
+              opacity: 1;
+            }
+            100% {
+              transform: translateY(100vh) rotate(180deg);
+              opacity: 0;
+            }
+          }
+
           @keyframes swing {
-            0%, 100% {
+            0%,
+            100% {
               transform: rotate(-10deg);
             }
             50% {
@@ -587,6 +722,10 @@ export default function Hero() {
 
           .animate-snowfall {
             animation: snowfall linear infinite;
+          }
+
+          .animate-sprinkle-fall {
+            animation: sprinkle-fall linear infinite;
           }
 
           .animate-swing {

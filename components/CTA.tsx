@@ -1,8 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import Modal from "./Modal";
 
 export default function CTA() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div style={{ position: "relative", zIndex: 1 }}>
       {/* Teal Header Section */}
@@ -108,11 +110,11 @@ export default function CTA() {
           <p
             style={{
               color: "white",
-              fontSize: "clamp(18px, 3vw, 24px)",
               fontFamily: "var(--font-be-vietnam)",
               fontWeight: "400",
               margin: "0 0 0.5rem 0",
             }}
+            className="text-xl md:text-2xl"
           >
             This Christmas, let your kindness shine brighter than ever.
           </p>
@@ -121,12 +123,12 @@ export default function CTA() {
           <p
             style={{
               color: "rgba(255, 255, 255, 0.95)",
-              fontSize: "clamp(12px, 2vw, 14px)",
               fontFamily: "var(--font-be-vietnam)",
               fontWeight: "300",
               fontStyle: "italic",
               margin: "0 0 3rem 0",
             }}
+            className="text-lg md:text-xl"
           >
             &ldquo;No matter where you are, you can make a child feel seen,
             loved and remembered.&rdquo;
@@ -149,7 +151,6 @@ export default function CTA() {
                 background: "rgba(255, 255, 255, 0.05)",
                 borderRadius: "32px",
                 border: "4px solid #D4AF37",
-                padding: "1.5rem",
                 textAlign: "center",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 cursor: "pointer",
@@ -169,8 +170,8 @@ export default function CTA() {
               <div
                 style={{
                   width: "100%",
-                  height: "160px",
-                  borderRadius: "20px",
+                  height: "180px",
+                  borderRadius: "32px 32px 0 0",
                   backgroundColor: "#1a1a1a",
                   marginBottom: "1.5rem",
                   backgroundImage: "url(/star-ornament.jpg)",
@@ -183,21 +184,13 @@ export default function CTA() {
                   position: "relative",
                 }}
               >
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(135deg, rgba(26, 26, 26, 0.3), rgba(51, 51, 51, 0.3))",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#666",
-                    fontSize: "48px",
-                  }}
-                >
-                  ⭐
-                </div>
+                <Image
+                  unoptimized
+                  src="/CTA-image1.png"
+                  alt="Star Ornament"
+                  layout="fill"
+                  objectFit="cover"
+                />
               </div>
               <h3
                 style={{
@@ -211,13 +204,17 @@ export default function CTA() {
                 Make a Wish Come True
               </h3>
               <button
-                onClick={() => document.getElementById('pinetree')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("pinetree")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 style={{
                   background:
                     "linear-gradient(90deg, #004D40 0%, #00B395 100%)",
                   color: "white",
                   border: "none",
-                  borderRadius: "12px",
+                  borderRadius: "20px",
                   padding: "0.875rem 1.75rem",
                   fontSize: "15px",
                   fontFamily: "var(--font-be-vietnam)",
@@ -239,6 +236,7 @@ export default function CTA() {
                     "linear-gradient(90deg, #004D40 0%, #00B395 100%)";
                   e.currentTarget.style.transform = "scale(1)";
                 }}
+                className="mb-6"
               >
                 See All Wishes <span style={{ fontSize: "18px" }}>→</span>
               </button>
@@ -250,7 +248,6 @@ export default function CTA() {
                 background: "rgba(255, 255, 255, 0.05)",
                 borderRadius: "32px",
                 border: "4px solid #D4AF37",
-                padding: "1.5rem",
                 textAlign: "center",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 cursor: "pointer",
@@ -270,8 +267,8 @@ export default function CTA() {
               <div
                 style={{
                   width: "100%",
-                  height: "160px",
-                  borderRadius: "20px",
+                  height: "180px",
+                  borderRadius: "32px 32px 0 0",
                   backgroundColor: "#1a1a1a",
                   marginBottom: "1.5rem",
                   backgroundImage: "url(/christmas-bauble.jpg)",
@@ -284,21 +281,13 @@ export default function CTA() {
                   position: "relative",
                 }}
               >
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(135deg, rgba(26, 26, 26, 0.3), rgba(51, 51, 51, 0.3))",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#666",
-                    fontSize: "48px",
-                  }}
-                >
-                  🎄
-                </div>
+                <Image
+                  unoptimized
+                  src="/CTA-image2.png"
+                  alt="Star Ornament"
+                  layout="fill"
+                  objectFit="cover"
+                />
               </div>
               <h3
                 style={{
@@ -312,12 +301,13 @@ export default function CTA() {
                 Give a $10 Gift
               </h3>
               <button
+                onClick={() => setIsModalOpen(true)}
                 style={{
                   background:
                     "linear-gradient(90deg, #004D40 0%, #00B395 100%)",
                   color: "white",
                   border: "none",
-                  borderRadius: "12px",
+                  borderRadius: "20px",
                   padding: "0.875rem 1.75rem",
                   fontSize: "15px",
                   fontFamily: "var(--font-be-vietnam)",
@@ -339,6 +329,7 @@ export default function CTA() {
                     "linear-gradient(90deg, #004D40 0%, #00B395 100%)";
                   e.currentTarget.style.transform = "scale(1)";
                 }}
+                className="mb-6"
               >
                 Donate Now! <span style={{ fontSize: "18px" }}>→</span>
               </button>
@@ -348,6 +339,21 @@ export default function CTA() {
           {/* Share the Magic Link */}
           <a
             href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              if (navigator.share) {
+                navigator.share({
+                  title: "Be Someone's Christmas Miracle",
+                  text: "This Christmas, let your kindness shine brighter than ever.",
+                  url: window.location.href,
+                });
+              } else {
+                // Fallback: copy URL to clipboard
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                  alert("Link copied to clipboard!");
+                });
+              }
+            }}
             style={{
               color: "white",
               fontSize: "16px",
@@ -357,6 +363,7 @@ export default function CTA() {
               fontStyle: "italic",
               transition: "opacity 0.3s ease",
               display: "inline-block",
+              cursor: "pointer",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
@@ -394,6 +401,14 @@ export default function CTA() {
           }
         }
       `}</style>
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title="Donate Now"
+      >
+        <p>This is a placeholder for donation options. Coming soon!</p>
+      </Modal>
     </div>
   );
 }
