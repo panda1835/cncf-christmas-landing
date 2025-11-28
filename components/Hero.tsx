@@ -66,6 +66,53 @@ export default function Hero() {
       className="relative overflow-hidden"
       style={{ backgroundImage: "url('/Background.svg')" }}
     >
+      {/* Snowflakes/Sparkle Effect - At section level */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        {[...Array(50)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute animate-snowfall"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `-${Math.random() * 20}%`,
+              animationDelay: `${Math.random() * 5}s`,
+              animationDuration: `${5 + Math.random() * 10}s`,
+            }}
+          >
+            <div
+              className="w-1 h-1 bg-white rounded-full opacity-80"
+              style={{
+                boxShadow: "0 0 3px rgba(255, 255, 255, 0.8)",
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Yellow Sprinkles - At section level */}
+      <div className="absolute hidden sm:flex inset-0 pointer-events-none z-0">
+        {sprinkles.map((s) => (
+          <div
+            key={s.id}
+            className="absolute animate-sprinkle-fall"
+            style={{
+              left: `${s.left}%`,
+              top: `${s.top}%`,
+              animationDelay: `${s.delay}s`,
+              animationDuration: `${s.duration}s`,
+            }}
+          >
+            <div
+              className="w-2 h-0.5 bg-yellow-300 rounded-full opacity-70"
+              style={{
+                boxShadow: "0 0 4px rgba(255, 235, 59, 0.8)",
+                transform: `rotate(${s.rotation}deg)`,
+              }}
+            />
+          </div>
+        ))}
+      </div>
+
       {/* Horizontal Line */}
       <div className="absolute inset-0 flex">
         <div className="w-full border-t-50 border-white mt-12" />
@@ -116,53 +163,6 @@ export default function Hero() {
 
       {/* HERO AREA WITH GRADIENT BACKGROUND */}
       <div className="relative bg-cover bg-top bg-no-repeat overflow-hidden">
-        {/* Snowflakes/Sparkle Effect */}
-        <div className="absolute inset-0 pointer-events-none">
-          {[...Array(50)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute animate-snowfall"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `-${Math.random() * 20}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${5 + Math.random() * 10}s`,
-              }}
-            >
-              <div
-                className="w-1 h-1 bg-white rounded-full opacity-80"
-                style={{
-                  boxShadow: "0 0 3px rgba(255, 255, 255, 0.8)",
-                }}
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* Yellow Sprinkles - Across Full Page */}
-        <div className="absolute hidden sm:flex inset-0 pointer-events-none">
-          {sprinkles.map((s) => (
-            <div
-              key={s.id}
-              className="absolute animate-sprinkle-fall"
-              style={{
-                left: `${s.left}%`,
-                top: `${s.top}%`,
-                animationDelay: `${s.delay}s`,
-                animationDuration: `${s.duration}s`,
-              }}
-            >
-              <div
-                className="w-2 h-0.5 bg-yellow-300 rounded-full opacity-70"
-                style={{
-                  boxShadow: "0 0 4px rgba(255, 235, 59, 0.8)",
-                  transform: `rotate(${s.rotation}deg)`,
-                }}
-              />
-            </div>
-          ))}
-        </div>
-
         {/* HERO CONTENT */}
         <div className="relative w-full pt-5 md:pt-0 pb-0">
           {/* Main Heading */}
@@ -202,8 +202,8 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* CTA Buttons in Hero */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* CTA Buttons in Hero - Above kids */}
+          <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
               onClick={() =>
                 document
@@ -259,9 +259,9 @@ export default function Hero() {
               />
             </div>
 
-            {/* Kid 1 (left) */}
+            {/* Kid 1 (left) - Below buttons */}
             <div
-              className="absolute left-2 md:left-1/9 -top-4/3 md:-top-1/4 z-0 animate-float"
+              className="absolute left-2 md:left-1/9 -top-4/3 md:-top-1/4 z-5 animate-float"
               style={{ animationDelay: "0.5s" }}
             >
               <Image
@@ -274,9 +274,9 @@ export default function Hero() {
               />
             </div>
 
-            {/* Kid 2 (right) */}
+            {/* Kid 2 (right) - Below buttons */}
             <div
-              className="absolute right-4 md:right-1/9 -top-8/9 md:-top-1/3 z-0 animate-float"
+              className="absolute right-4 md:right-1/9 -top-8/9 md:-top-1/3 z-5 animate-float"
               style={{ animationDelay: "1s" }}
             >
               <Image

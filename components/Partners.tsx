@@ -1,8 +1,28 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
 
 export default function Partners() {
-  const partners = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }];
+  // Generate array of 20 partner logos
+  const partnerLogos = Array.from({ length: 20 }, (_, i) => {
+    const num = String(i + 1).padStart(5, "0");
+    // Determine file extension based on the actual files
+    const extensions = [
+      "png", "jpg", "jpg", "jpg", "png", "png", "jpg", "jpg", "jpg", "jpg",
+      "jpg", "jpg", "jpg", "png", "png", "png", "jpg", "jpg", "png", "png"
+    ];
+    return `/partners/Partners-logo-${num}.${extensions[i]}`;
+  });
+
+  // Triple logos for seamless infinite loop
+  const triplicatedLogos = [...partnerLogos, ...partnerLogos, ...partnerLogos];
+  
+  // Split logos into two rows for mobile (10 logos each)
+  const firstRowLogos = partnerLogos.slice(0, 10);
+  const secondRowLogos = partnerLogos.slice(10, 20);
+  const triplicatedFirstRow = [...firstRowLogos, ...firstRowLogos, ...firstRowLogos];
+  const triplicatedSecondRow = [...secondRowLogos, ...secondRowLogos, ...secondRowLogos];
 
   return (
     <section
@@ -55,9 +75,9 @@ export default function Partners() {
         </div>
 
         {/* Partners section with decorative elements */}
-        <div className="relative">
+        <div className="relative mt-8">
           {/* Left chain decoration */}
-          <div className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 w-8 h-32 md:w-40 md:h-40 -ml-4 md:-ml-28">
+          {/* <div className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 w-8 h-32 md:w-40 md:h-40 -ml-4 md:-ml-28">
             <Image
               unoptimized
               src="/Partner-chainleft.svg"
@@ -65,10 +85,10 @@ export default function Partners() {
               fill
               className="object-contain"
             />
-          </div>
+          </div> */}
 
           {/* Right chain decoration */}
-          <div className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 md:w-40 md:h-40 -mr-4 md:-mr-28">
+          {/* <div className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 md:w-40 md:h-40 -mr-4 md:-mr-28">
             <Image
               unoptimized
               src="/Partner-chainright.svg"
@@ -76,42 +96,157 @@ export default function Partners() {
               fill
               className="object-contain"
             />
-          </div>
+          </div> */}
 
-          {/* Partners grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 px-8 md:px-16">
-            {partners.map((partner) => (
-              <div
-                key={partner.id}
-                className="flex flex-col items-center justify-center"
-              >
-                {/* Partner card */}
-                <div className="relative w-full aspect-square max-w-xs">
-                  <Image
-                    unoptimized
-                    src="/Partner-frame.svg"
-                    alt={`Partner ${partner.id}`}
-                    fill
-                    className="object-contain"
-                  />
-                  {/* Partner logo placeholder */}
-                  <div className="absolute inset-0 flex items-center justify-center p-4">
-                    <div className="relative w-24 h-24 md:w-28 md:h-28">
-                      <Image
-                        unoptimized
-                        src="/Partner-p1.png"
-                        alt={`Partner logo ${partner.id}`}
-                        fill
-                        className="object-contain"
-                      />
+          {/* Desktop: Horizontal carousel - 2/3 size (w-32 instead of w-48) */}
+          <div className="hidden md:block overflow-hidden px-8 md:px-16">
+            <div className="animate-scroll-horizontal flex gap-6">
+              {triplicatedLogos.map((logo, index) => (
+                <div
+                  key={index}
+                  className="flex-shrink-0 w-32"
+                >
+                  {/* Partner card */}
+                  <div className="relative w-full aspect-square">
+                    <Image
+                      unoptimized
+                      src="/Partner-frame.svg"
+                      alt={`Partner frame ${index}`}
+                      fill
+                      className="object-contain"
+                    />
+                    {/* Partner logo */}
+                    <div className="absolute inset-0 flex items-center justify-center p-6">
+                      <div className="relative w-full h-full">
+                        <Image
+                          unoptimized
+                          src={logo}
+                          alt={`Partner logo ${index + 1}`}
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile: 2 horizontal rows scrolling */}
+          <div className="md:hidden overflow-hidden px-8">
+            <div className="flex flex-col gap-4">
+              {/* First row - scrolls left */}
+              <div className="overflow-hidden">
+                <div className="animate-scroll-horizontal-mobile flex gap-4">
+                  {triplicatedFirstRow.map((logo, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-24"
+                    >
+                      {/* Partner card */}
+                      <div className="relative w-full aspect-square">
+                        <Image
+                          unoptimized
+                          src="/Partner-frame.svg"
+                          alt={`Partner frame ${index}`}
+                          fill
+                          className="object-contain"
+                        />
+                        {/* Partner logo */}
+                        <div className="absolute inset-0 flex items-center justify-center p-4">
+                          <div className="relative w-4/5 h-4/5">
+                            <Image
+                              unoptimized
+                              src={logo}
+                              alt={`Partner logo ${index + 1}`}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            ))}
+
+              {/* Second row - scrolls left (slightly different speed for visual interest) */}
+              <div className="overflow-hidden">
+                <div className="animate-scroll-horizontal-mobile-slow flex gap-4">
+                  {triplicatedSecondRow.map((logo, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-24"
+                    >
+                      {/* Partner card */}
+                      <div className="relative w-full aspect-square">
+                        <Image
+                          unoptimized
+                          src="/Partner-frame.svg"
+                          alt={`Partner frame ${index}`}
+                          fill
+                          className="object-contain"
+                        />
+                        {/* Partner logo */}
+                        <div className="absolute inset-0 flex items-center justify-center p-4">
+                          <div className="relative w-4/5 h-4/5">
+                            <Image
+                              unoptimized
+                              src={logo}
+                              alt={`Partner logo ${index + 1}`}
+                              fill
+                              className="object-contain"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll-horizontal {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 3));
+          }
+        }
+
+        @keyframes scroll-horizontal-mobile {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 3));
+          }
+        }
+
+        .animate-scroll-horizontal {
+          animation: scroll-horizontal 10s linear infinite;
+        }
+
+        .animate-scroll-horizontal-mobile {
+          animation: scroll-horizontal-mobile 5s linear infinite;
+        }
+
+        .animate-scroll-horizontal-mobile-slow {
+          animation: scroll-horizontal-mobile 5s linear infinite;
+        }
+
+        .animate-scroll-horizontal:hover,
+        .animate-scroll-horizontal-mobile:hover,
+        .animate-scroll-horizontal-mobile-slow:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 }
