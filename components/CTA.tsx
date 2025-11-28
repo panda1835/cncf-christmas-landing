@@ -1,10 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-import Modal from "./Modal";
 
 export default function CTA() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div style={{ position: "relative", zIndex: 1 }}>
       {/* Teal Header Section */}
@@ -130,8 +128,7 @@ export default function CTA() {
             }}
             className="text-lg md:text-xl"
           >
-            &ldquo;No matter where you are, you can make a child feel seen,
-            loved and remembered.&rdquo;
+            You’re not giving a gift. You’re giving a childhood.
           </p>
 
           {/* CTA Cards Container */}
@@ -301,7 +298,7 @@ export default function CTA() {
                 Give a $10 Gift
               </h3>
               <button
-                onClick={() => setIsModalOpen(true)}
+                onClick={() => window.open("https://www.cncf.org/donate", "_blank")}
                 style={{
                   background:
                     "linear-gradient(90deg, #004D40 0%, #00B395 100%)",
@@ -402,13 +399,7 @@ export default function CTA() {
         }
       `}</style>
 
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="Donate Now"
-      >
-        <p>This is a placeholder for donation options. Coming soon!</p>
-      </Modal>
+
     </div>
   );
 }

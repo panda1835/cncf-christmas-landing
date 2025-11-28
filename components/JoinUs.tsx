@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import Modal from "./Modal";
+import LocationsModal from "./LocationsModal";
 
 export default function JoinUs() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -346,7 +346,7 @@ export default function JoinUs() {
                 cursor: "pointer",
                 transition: "all 0.3s ease",
               }}
-              onClick={() => window.open("https://www.cncf.org", "_blank")}
+              onClick={() => window.open("https://www.cncf.org/donate", "_blank")}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow =
@@ -358,7 +358,7 @@ export default function JoinUs() {
                   "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
               }}
             >
-              Visit Our Website
+              Give a $10 Gift
             </button>
           </div>
 
@@ -424,6 +424,7 @@ export default function JoinUs() {
                 height: "90px",
                 zIndex: 2,
               }}
+              className="hidden sm:flex"
             >
               <Image
                 unoptimized
@@ -497,13 +498,11 @@ export default function JoinUs() {
         }
       `}</style>
 
-      <Modal
+      <LocationsModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title="All Locations"
-      >
-        <p>This is a placeholder for the locations list. Coming soon!</p>
-      </Modal>
+      />
     </section>
   );
 }
+

@@ -314,7 +314,7 @@ button {
   
   /* Shorter float for Santa on mobile */
   .animate-float-slow {
-    animation: float-mobile 5s ease-in-out infinite;
+    animation: float-mobile 3s ease-in-out infinite;
   }
 }
 

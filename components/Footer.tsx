@@ -1,39 +1,34 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
-import Modal from "./Modal";
 
 export default function Footer() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <footer className="bg-[#173f35] text-[#f1f6f4] font-be-vietnam">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
         {/* Top Section: Logo, Quote, Gift Button */}
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6 md:gap-8 mb-10">
-          {/* Logo */}
-          <div className="shrink-0">
+        <div className="flex flex-col md:flex-row flex-wrap items-center md:items-start justify-between gap-6 md:gap-8 mb-1">
+          {/* Main Logo - First on mobile, left on desktop */}
+          <div className="shrink-0 order-1 md:order-none">
             <Image
               unoptimized
-              src="/CNCF-logo.png"
+              src="/Footer-logo.png"
               alt="CNCF Logo"
-              width={100}
-              height={100}
+              width={200}
+              height={200}
             />
           </div>
 
-          {/* Centered Quote */}
-          <div className="flex-1 text-center md:text-center lg:text-center">
-            <h2 className="font-lobster text-[#D4A574] text-xl sm:text-2xl leading-tight">
-              "Together, Let's Make This Christmas Brighter."
+          {/* Centered Quote - Third on mobile, center on desktop */}
+          <div className="flex-1 text-center md:text-center lg:text-center order-3 md:order-none w-full md:w-auto">
+            <h2 className="font-lobster text-xl sm:text-2xl leading-tight bg-gradient-to-r from-[#FBE67B] to-[#FCFBE7] bg-clip-text text-transparent">
+              Together, Let's Make This Christmas Brighter.
             </h2>
-            <p className="font-lobster text-[#D4A574] text-xl sm:text-2xl leading-tight mt-1">
-              "Sharing the joy, spreading the magic."
+            <p className="font-lobster text-xl sm:text-2xl leading-tight mt-1 bg-gradient-to-r from-[#FBE67B] to-[#FCFBE7] bg-clip-text text-transparent">
+              Sharing the joy, spreading the magic.
             </p>
-          </div>
 
-          {/* Gift Button */}
-          <button
-            onClick={() => setIsModalOpen(true)}
+            <button
+            onClick={() => window.open("https://www.cncf.org/donate", "_blank")}
             style={{
               background: "none",
               border: "none",
@@ -49,16 +44,29 @@ export default function Footer() {
               e.currentTarget.style.transform = "scale(1)";
               e.currentTarget.style.opacity = "1";
             }}
-            className="shrink-0"
+            className="shrink-0 mt-5"
           >
             <Image
               unoptimized
-              src="/Gift-10-button.png"
+              src="/Gift-10-button.svg" 
               alt="Gift $10 Gift"
-              width={150}
-              height={50}
+              width={200}
+              height={200}
             />
           </button>
+          </div>
+
+          {/* Certified Logo - Second on mobile, right on desktop */}
+          <div className="shrink-0 order-2 md:order-none">
+            <Image
+              unoptimized
+              src="/Footer-certified.png"
+              alt="CNCF Certified"
+              width={200}
+              height={200}
+            />
+          </div>
+          
         </div>
 
         {/* Main Content: Contact, About, Get Involved, Resources */}
@@ -135,7 +143,9 @@ export default function Footer() {
             </ul>
             <div className="flex justify-center sm:justify-start gap-3 mt-4">
               <a
-                href="#facebook"
+                href="https://www.facebook.com/share/17bbEjrEsy/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
               >
                 <Image
@@ -147,7 +157,9 @@ export default function Footer() {
                 />
               </a>
               <a
-                href="#linkedin"
+                href="https://www.linkedin.com/company/christina-noble-children-s-foundation-international/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
               >
                 <Image
@@ -242,17 +254,11 @@ export default function Footer() {
         <div className="text-center text-sm sm:text-md text-[#c9d3cb] leading-relaxed">
           © 2025 CNCF - A Thousand Wishes. All Rights Reserved.
           <br />
-          Made with Love to bring joy to children across Vietnam.
+          Made with Love to bring joy to children across Vietnam and Mongolia.
         </div>
       </div>
 
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="Gift $10"
-      >
-        <p>This is a placeholder for the $10 gift donation. Coming soon!</p>
-      </Modal>
+
     </footer>
   );
 }
