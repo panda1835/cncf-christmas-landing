@@ -14,10 +14,10 @@ export default function Footer() {
           <div className="shrink-0">
             <Image
               unoptimized
-              src="/CNCF-logo.png"
+              src="/Footer-logo.png"
               alt="CNCF Logo"
-              width={100}
-              height={100}
+              width={200}
+              height={200}
             />
           </div>
 

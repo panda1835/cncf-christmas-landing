@@ -130,8 +130,7 @@ export default function CTA() {
             }}
             className="text-lg md:text-xl"
           >
-            &ldquo;No matter where you are, you can make a child feel seen,
-            loved and remembered.&rdquo;
+            You’re not giving a gift. You’re giving a childhood.
           </p>
 
           {/* CTA Cards Container */}
