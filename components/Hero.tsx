@@ -194,7 +194,8 @@ export default function Hero() {
           <div className="text-center mb-8 max-w-3xl mx-auto">
             <p className="font-be-vietnam px-5 text-white text-lg leading-relaxed">
               &quot;For 12 beautiful years, A Thousand Wishes has brought
-              Christmas magic to vulnerable children across Vietnam.
+              Christmas magic to vulnerable children across Vietnam and
+              Mongolia.
               <br />
               This year, you can help make their Christmas dreams come
               true.&quot;

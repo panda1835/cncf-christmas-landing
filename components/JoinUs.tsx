@@ -322,7 +322,7 @@ export default function JoinUs() {
                   www.cncf.org
                 </a>{" "}
                 to explore CNCF&apos;s work and help us bring brighter futures
-                to the children we serve.
+                to the children we serve in Vietnam and Mongolia.
               </p>
             </div>
 
