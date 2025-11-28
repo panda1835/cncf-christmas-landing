@@ -126,7 +126,7 @@ export default function Partners() {
                 {duplicatedLogos.map((logo, index) => (
                   <div
                     key={index}
-                    className="flex-shrink-0 w-32"
+                    className="flex-shrink-0 w-40"
                   >
                     {/* Partner card */}
                     <div className="relative w-full aspect-square">
@@ -139,7 +139,7 @@ export default function Partners() {
                       />
                       {/* Partner logo */}
                       <div className="absolute inset-0 flex items-center justify-center p-6">
-                        <div className="relative w-full h-full">
+                        <div className="relative w-5/6 h-5/6">
                           <Image
                             unoptimized
                             src={logo}
@@ -257,7 +257,7 @@ export default function Partners() {
         }
 
         .animate-scroll-horizontal {
-          animation: scroll-horizontal 100s linear infinite;
+          animation: scroll-horizontal 180s linear infinite;
         }
 
         .animate-scroll-horizontal-mobile {
