@@ -149,12 +149,15 @@ export default function Hero() {
           </div>
 
           {/* Right Buttons */}
-          <div className="items-center gap-3 sm:gap-4 hidden">
+          <div className="items-center gap-3 sm:gap-4 hidden md:flex">
             {/* Gift $10 Button (image) */}
-            <button className="relative transition-transform hover:scale-105">
+            <button 
+              onClick={() => window.open("https://www.cncf.org/donate", "_blank")}
+              className="relative -top-2 transition-transform hover:scale-105"
+            >
               <Image
                 unoptimized
-                src="/Gift-10-button.png"
+                src="/Gift-10-button.svg"
                 alt="Gift a $10 Gift"
                 width={150}
                 height={100}
@@ -163,7 +166,7 @@ export default function Hero() {
             </button>
 
             {/* Make a Wish Come True Button */}
-            <button
+            {/* <button
               onClick={() =>
                 document
                   .getElementById("join-us")
@@ -172,7 +175,7 @@ export default function Hero() {
               className="cursor-pointer inline-flex items-center justify-center bg-[#009c8a] hover:bg-[#008272] text-white font-be-vietnam font-semibold text-sm sm:text-base px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-[0_4px_10px_rgba(0,0,0,0.18)] transition-transform hover:scale-105"
             >
               Make a Wish Come True
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
