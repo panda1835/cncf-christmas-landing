@@ -193,12 +193,11 @@ export default function Hero() {
           {/* Description */}
           <div className="text-center mb-8 max-w-3xl mx-auto">
             <p className="font-be-vietnam px-5 text-white text-lg leading-relaxed">
-              &quot;For 12 beautiful years, A Thousand Wishes has brought
-              Christmas magic to vulnerable children across Vietnam and
-              Mongolia.
+              For 12 beautiful years, A Thousand Wishes has brought Christmas
+              magic to vulnerable children across Vietnam and Mongolia.
               <br />
-              This year, you can help make their Christmas dreams come
-              true.&quot;
+              Just one gift from you can turn a difficult childhood into a
+              Christmas they will remember forever
             </p>
           </div>
 
@@ -245,9 +244,7 @@ export default function Hero() {
             </div>
 
             {/* Santa - Positioned on top of pinetree */}
-            <div
-              className="absolute left-1/2 transform -translate-x-1/2 top-0 z-10 animate-float-slow -mt-24 md:-mt-30"
-            >
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 z-10 animate-float-slow -mt-24 md:-mt-30">
               <Image
                 unoptimized
                 src="/Hero-character.svg"
@@ -259,9 +256,7 @@ export default function Hero() {
             </div>
 
             {/* Kid 1 (left) - Below buttons */}
-            <div
-              className="absolute left-2 md:left-1/9 -top-4/3 md:-top-1/4 z-5"
-            >
+            <div className="absolute left-2 md:left-1/9 -top-4/3 md:-top-1/4 z-5">
               <Image
                 unoptimized
                 src="/Hero-kid1.png"
@@ -273,9 +268,7 @@ export default function Hero() {
             </div>
 
             {/* Kid 2 (right) - Below buttons */}
-            <div
-              className="absolute right-4 md:right-1/9 -top-8/9 md:-top-1/3 z-5"
-            >
+            <div className="absolute right-4 md:right-1/9 -top-8/9 md:-top-1/3 z-5">
               <Image
                 unoptimized
                 src="/Hero-kid2.png"
@@ -585,7 +578,6 @@ export default function Hero() {
             </div>
           </div>
         )}
-
 
         {/* Welcome Modal - First Visit Only */}
         {showWelcomeModal && (

@@ -29,7 +29,7 @@ export default function CTA() {
             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
           }}
         >
-          Be Someone&apos;s Christmas Miracle
+          Help a Child Believe in Magic Again
         </h1>
       </div>
 
@@ -343,7 +343,7 @@ export default function CTA() {
               e.preventDefault();
               if (navigator.share) {
                 navigator.share({
-                  title: "Be Someone's Christmas Miracle",
+                  title: "Help a Child Believe in Magic Again",
                   text: "This Christmas, let your kindness shine brighter than ever.",
                   url: window.location.href,
                 });
