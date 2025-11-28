@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Lobster, Be_Vietnam_Pro } from "next/font/google";
+import { Geist, Geist_Mono, Lobster, Be_Vietnam_Pro, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,6 +24,12 @@ const beVietnam = Be_Vietnam_Pro({
   variable: "--font-be-vietnam",
 });
 
+const montserrat = Montserrat({
+  weight: ["300", "400", "500", "600", "700"],
+  subsets: ["latin"],
+  variable: "--font-montserrat",
+});
+
 export const metadata: Metadata = {
   title: "A Thousand Wishes | CNCF",
   description: "A Thousand Wishes - Bringing Joy to Children in Vietnam and Mongolia",
@@ -37,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${lobster.variable} ${beVietnam.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${lobster.variable} ${beVietnam.variable} ${montserrat.variable} antialiased`}
       >
         {children}
       </body>

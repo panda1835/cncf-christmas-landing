@@ -57,6 +57,11 @@ body {
   font-family: 'Lobster', cursive;
 }
 
+/* Montserrat Font Utility */
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
 /* Gradient Text Utilities */
 .gradient-text-red {
   background: linear-gradient(to bottom, var(--christmas-red-dark), var(--christmas-red));

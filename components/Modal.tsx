@@ -29,6 +29,7 @@ export default function Modal({
         padding: "1rem",
       }}
       onClick={onClose}
+      className="backdrop-blur-md animate-fade-in"
     >
       <div
         style={{

@@ -5,26 +5,45 @@ import Image from "next/image";
 
 export default function Partners() {
   // Generate array of 20 partner logos
-  const partnerLogos = Array.from({ length: 20 }, (_, i) => {
+  const partnerLogos = Array.from({ length: 21 }, (_, i) => {
     const num = String(i + 1).padStart(5, "0");
     // Determine file extension based on the actual files
     const extensions = [
-      "png", "jpg", "jpg", "jpg", "png", "png", "jpg", "jpg", "jpg", "jpg",
-      "jpg", "jpg", "jpg", "png", "png", "png", "jpg", "jpg", "png", "png"
+      "png",
+      "jpg",
+      "jpg",
+      "jpg",
+      "png",
+      "png",
+      "jpg",
+      "jpg",
+      "jpg",
+      "jpg",
+      "jpg",
+      "jpg",
+      "jpg",
+      "png",
+      "png",
+      "png",
+      "jpg",
+      "jpg",
+      "png",
+      "png",
+      "jpg",
     ];
     return `/partners/Partners-logo-${num}.${extensions[i]}`;
   });
 
   // Duplicate logos many times for seamless infinite loop (6x for smooth scrolling)
   const duplicatedLogos = [
-    ...partnerLogos, 
-    ...partnerLogos, 
     ...partnerLogos,
     ...partnerLogos,
     ...partnerLogos,
-    ...partnerLogos
+    ...partnerLogos,
+    ...partnerLogos,
+    ...partnerLogos,
   ];
-  
+
   // Split logos into two rows for mobile (10 logos each)
   const firstRowLogos = partnerLogos.slice(0, 10);
   const secondRowLogos = partnerLogos.slice(10, 20);
@@ -34,7 +53,7 @@ export default function Partners() {
     ...firstRowLogos,
     ...firstRowLogos,
     ...firstRowLogos,
-    ...firstRowLogos
+    ...firstRowLogos,
   ];
   const duplicatedSecondRow = [
     ...secondRowLogos,
@@ -42,7 +61,7 @@ export default function Partners() {
     ...secondRowLogos,
     ...secondRowLogos,
     ...secondRowLogos,
-    ...secondRowLogos
+    ...secondRowLogos,
   ];
 
   return (
@@ -124,10 +143,7 @@ export default function Partners() {
             <div className="flex">
               <div className="animate-scroll-horizontal flex gap-6 flex-shrink-0">
                 {duplicatedLogos.map((logo, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 w-40"
-                  >
+                  <div key={index} className="flex-shrink-0 w-40">
                     {/* Partner card */}
                     <div className="relative w-full aspect-square">
                       <Image
@@ -164,10 +180,7 @@ export default function Partners() {
                 <div className="flex">
                   <div className="animate-scroll-horizontal-mobile flex gap-4 flex-shrink-0">
                     {duplicatedFirstRow.map((logo, index) => (
-                      <div
-                        key={index}
-                        className="flex-shrink-0 w-24"
-                      >
+                      <div key={index} className="flex-shrink-0 w-24">
                         {/* Partner card */}
                         <div className="relative w-full aspect-square">
                           <Image
@@ -201,10 +214,7 @@ export default function Partners() {
                 <div className="flex">
                   <div className="animate-scroll-horizontal-mobile-slow flex gap-4 flex-shrink-0">
                     {duplicatedSecondRow.map((logo, index) => (
-                      <div
-                        key={index}
-                        className="flex-shrink-0 w-24"
-                      >
+                      <div key={index} className="flex-shrink-0 w-24">
                         {/* Partner card */}
                         <div className="relative w-full aspect-square">
                           <Image

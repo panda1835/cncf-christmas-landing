@@ -2,11 +2,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import { wishes } from "@/lib/wishes";
 
 export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
   const [hasShownWelcome, setHasShownWelcome] = useState(false);
+  const [currentWish, setCurrentWish] = useState(wishes[0]);
+  const [currentStamp, setCurrentStamp] = useState("stamps-01.png");
   const [sprinkles, setSprinkles] = useState<
     Array<{
       id: string;
@@ -56,6 +59,19 @@ export default function Hero() {
 
     return () => observer.disconnect();
   }, [hasShownWelcome]);
+
+  const openModalWithRandomWish = () => {
+    // Get random wish
+    const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+    setCurrentWish(randomWish);
+    
+    // Get random stamp (1, 2, or 3)
+    const stampOptions = ["stamps-01.png", "stamps-02.png", "stamps-03.jpg"];
+    const randomStamp = stampOptions[Math.floor(Math.random() * stampOptions.length)];
+    setCurrentStamp(randomStamp);
+    
+    setIsModalOpen(true);
+  };
 
   const closeWelcomeModal = () => {
     setShowWelcomeModal(false);
@@ -193,12 +209,11 @@ export default function Hero() {
           {/* Description */}
           <div className="text-center mb-8 max-w-3xl mx-auto">
             <p className="font-be-vietnam px-5 text-white text-lg leading-relaxed">
-              &quot;For 12 beautiful years, A Thousand Wishes has brought
-              Christmas magic to vulnerable children across Vietnam and
-              Mongolia.
+              For 12 beautiful years, A Thousand Wishes has brought Christmas
+              magic to vulnerable children across Vietnam and Mongolia.
               <br />
-              This year, you can help make their Christmas dreams come
-              true.&quot;
+              Just one gift from you can turn a difficult childhood into a
+              Christmas they will remember forever
             </p>
           </div>
 
@@ -245,9 +260,7 @@ export default function Hero() {
             </div>
 
             {/* Santa - Positioned on top of pinetree */}
-            <div
-              className="absolute left-1/2 transform -translate-x-1/2 top-0 z-10 animate-float-slow -mt-24 md:-mt-30"
-            >
+            <div className="absolute left-1/2 transform -translate-x-1/2 top-0 z-10 animate-float-slow -mt-24 md:-mt-30">
               <Image
                 unoptimized
                 src="/Hero-character.svg"
@@ -259,9 +272,7 @@ export default function Hero() {
             </div>
 
             {/* Kid 1 (left) - Below buttons */}
-            <div
-              className="absolute left-2 md:left-1/9 -top-4/3 md:-top-1/4 z-5"
-            >
+            <div className="absolute left-2 md:left-1/9 -top-4/3 md:-top-1/4 z-5">
               <Image
                 unoptimized
                 src="/Hero-kid1.png"
@@ -273,9 +284,7 @@ export default function Hero() {
             </div>
 
             {/* Kid 2 (right) - Below buttons */}
-            <div
-              className="absolute right-4 md:right-1/9 -top-8/9 md:-top-1/3 z-5"
-            >
+            <div className="absolute right-4 md:right-1/9 -top-8/9 md:-top-1/3 z-5">
               <Image
                 unoptimized
                 src="/Hero-kid2.png"
@@ -299,7 +308,7 @@ export default function Hero() {
                 </div>
                 {/* Star */}
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModalWithRandomWish}
                   className="relative cursor-pointer transition-transform hover:scale-110 animate-swing"
                   aria-label="Click to view wish"
                 >
@@ -330,7 +339,7 @@ export default function Hero() {
                 </div>
                 {/* Star */}
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModalWithRandomWish}
                   className="relative cursor-pointer transition-transform hover:scale-110 animate-swing"
                   style={{ animationDelay: "0.2s" }}
                   aria-label="Click to view wish"
@@ -362,7 +371,7 @@ export default function Hero() {
                 </div>
                 {/* Star */}
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModalWithRandomWish}
                   className="relative cursor-pointer transition-transform hover:scale-110 animate-swing"
                   style={{ animationDelay: "0.4s" }}
                   aria-label="Click to view wish"
@@ -394,7 +403,7 @@ export default function Hero() {
                 </div>
                 {/* Star */}
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModalWithRandomWish}
                   className="relative cursor-pointer transition-transform hover:scale-110 animate-swing"
                   style={{ animationDelay: "0.6s" }}
                   aria-label="Click to view wish"
@@ -427,7 +436,7 @@ export default function Hero() {
                 </div>
                 {/* Star */}
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModalWithRandomWish}
                   className="relative cursor-pointer transition-transform hover:scale-110 animate-swing"
                   style={{ animationDelay: "0.1s" }}
                   aria-label="Click to view wish"
@@ -459,7 +468,7 @@ export default function Hero() {
                 </div>
                 {/* Star */}
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModalWithRandomWish}
                   className="relative cursor-pointer transition-transform hover:scale-110 animate-swing"
                   style={{ animationDelay: "0.3s" }}
                   aria-label="Click to view wish"
@@ -491,7 +500,7 @@ export default function Hero() {
                 </div>
                 {/* Star */}
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModalWithRandomWish}
                   className="relative cursor-pointer transition-transform hover:scale-110 animate-swing"
                   style={{ animationDelay: "0.5s" }}
                   aria-label="Click to view wish"
@@ -523,7 +532,7 @@ export default function Hero() {
                 </div>
                 {/* Star */}
                 <button
-                  onClick={() => setIsModalOpen(true)}
+                  onClick={openModalWithRandomWish}
                   className="relative cursor-pointer transition-transform hover:scale-110 animate-swing"
                   style={{ animationDelay: "0.7s" }}
                   aria-label="Click to view wish"
@@ -545,17 +554,18 @@ export default function Hero() {
         {/* Modal */}
         {isModalOpen && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md animate-fade-in"
             onClick={() => setIsModalOpen(false)}
           >
             <div
-              className="relative bg-white rounded-2xl shadow-2xl max-w-2xl w-full mx-4 p-8"
+              className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 overflow-hidden animate-zoom-in"
               onClick={(e) => e.stopPropagation()}
             >
+              
               {/* Close Button */}
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors"
+                className="absolute top-4 right-4 z-20 text-gray-400 hover:text-gray-600 transition-colors bg-white rounded-full p-1 shadow-md"
                 aria-label="Close modal"
               >
                 <svg
@@ -573,24 +583,75 @@ export default function Hero() {
                 </svg>
               </button>
 
-              {/* Modal Content - Placeholder */}
-              <div className="text-center">
-                <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                  Wish Details
-                </h2>
-                <p className="text-gray-600">
-                  Content will be added here later...
-                </p>
+              {/* Modal Content */}
+              <div className="relative p-8 pt-12">
+                {/* Logo/Badge at top center */}
+                <div className="flex justify-center mb-6">
+                  <div className="relative w-40 h-auto">
+                    <Image
+                      unoptimized
+                      src={`/letter/${currentStamp}`}
+                      alt="Stamp"
+                      width={96}
+                      height={96}
+                      className="w-full h-full"
+                    />
+                  </div>
+                </div>
+
+                {/* Letter Content */}
+                <div className="space-y-4 font-montserrat">
+                  {/* Greeting */}
+                  <div className="">
+                    <p className="font-medium italic text-gray-600 mb-1">
+                      Dear Santa,
+                    </p>
+                  </div>
+
+                  {/* From Section */}
+                
+
+                   <div className="space-y-2 pt-2">
+                    <div className="pb-2">
+                      <p className="text-base italic text-gray-600 font-medium  leading-relaxed">
+                        {currentWish.message}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Wish Section */}
+                  <div className="space-y-2 pt-2">
+                    <div className="min-h-[60px] pb-2">
+                      <p className="text-base italic text-gray-600 font-medium  leading-relaxed">
+                        {currentWish.wish}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="pt-6 flex justify-center">
+                    <button
+                      onClick={() => {
+                        setIsModalOpen(false);
+                        document
+                          .getElementById("join-us")
+                          ?.scrollIntoView({ behavior: "smooth" });
+                      }}
+                      className="bg-[#D62828] hover:bg-[#b91c1c] text-white font-montserrat font-bold px-8 py-3 rounded-full text-base shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-4 border-[#F2CC8F]"
+                    >
+                      Make This Wish Come True
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         )}
 
-
         {/* Welcome Modal - First Visit Only */}
         {showWelcomeModal && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 backdrop-blur-sm animate-fade-in"
+            className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md animate-fade-in"
             onClick={closeWelcomeModal}
           >
             <div

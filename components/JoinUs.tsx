@@ -219,11 +219,11 @@ export default function JoinUs() {
               className="text-lg"
             >
               <li style={{ marginBottom: "0.75rem" }}>
-                • Visit our partner restaurants, cafés, hotels and spas across
+                🌟 Visit our partner restaurants, cafés, hotels and spas across
                 Ho Chi Minh City.
               </li>
               <li>
-                • Choose a child&apos;s wish from the tree, buy the gift, wrap
+                🌟 Choose a child&apos;s wish from the tree, buy the gift, wrap
                 it, attach the wish card and return it before December 20.
               </li>
             </ul>
@@ -306,12 +306,12 @@ export default function JoinUs() {
               className="text-lg"
             >
               <p style={{ marginBottom: "1rem" }}>
-                • Even from miles away, you can light up a child&apos;s world.
+                🌟 Even from miles away, you can light up a child&apos;s world.
                 Your online gift wraps a child in joy, love and the hope of a
                 brighter tomorrow.
               </p>
               <p style={{ marginBottom: "0" }}>
-                • Visit{" "}
+                🌟 Visit{" "}
                 <a
                   style={{ color: "#FFD700" }}
                   href="https://www.cncf.org"
