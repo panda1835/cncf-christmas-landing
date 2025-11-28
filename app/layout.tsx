@@ -26,7 +26,7 @@ const beVietnam = Be_Vietnam_Pro({
 
 export const metadata: Metadata = {
   title: "A Thousand Wishes | CNCF",
-  description: "A Thousand Wishes - Bringing Joy to Children",
+  description: "A Thousand Wishes - Bringing Joy to Children in Vietnam and Mongolia",
 };
 
 export default function RootLayout({
