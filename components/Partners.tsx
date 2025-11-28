@@ -15,14 +15,35 @@ export default function Partners() {
     return `/partners/Partners-logo-${num}.${extensions[i]}`;
   });
 
-  // Triple logos for seamless infinite loop
-  const triplicatedLogos = [...partnerLogos, ...partnerLogos, ...partnerLogos];
+  // Duplicate logos many times for seamless infinite loop (6x for smooth scrolling)
+  const duplicatedLogos = [
+    ...partnerLogos, 
+    ...partnerLogos, 
+    ...partnerLogos,
+    ...partnerLogos,
+    ...partnerLogos,
+    ...partnerLogos
+  ];
   
   // Split logos into two rows for mobile (10 logos each)
   const firstRowLogos = partnerLogos.slice(0, 10);
   const secondRowLogos = partnerLogos.slice(10, 20);
-  const triplicatedFirstRow = [...firstRowLogos, ...firstRowLogos, ...firstRowLogos];
-  const triplicatedSecondRow = [...secondRowLogos, ...secondRowLogos, ...secondRowLogos];
+  const duplicatedFirstRow = [
+    ...firstRowLogos,
+    ...firstRowLogos,
+    ...firstRowLogos,
+    ...firstRowLogos,
+    ...firstRowLogos,
+    ...firstRowLogos
+  ];
+  const duplicatedSecondRow = [
+    ...secondRowLogos,
+    ...secondRowLogos,
+    ...secondRowLogos,
+    ...secondRowLogos,
+    ...secondRowLogos,
+    ...secondRowLogos
+  ];
 
   return (
     <section
@@ -100,36 +121,38 @@ export default function Partners() {
 
           {/* Desktop: Horizontal carousel - 2/3 size (w-32 instead of w-48) */}
           <div className="hidden md:block overflow-hidden px-8 md:px-16">
-            <div className="animate-scroll-horizontal flex gap-6">
-              {triplicatedLogos.map((logo, index) => (
-                <div
-                  key={index}
-                  className="flex-shrink-0 w-32"
-                >
-                  {/* Partner card */}
-                  <div className="relative w-full aspect-square">
-                    <Image
-                      unoptimized
-                      src="/Partner-frame.svg"
-                      alt={`Partner frame ${index}`}
-                      fill
-                      className="object-contain"
-                    />
-                    {/* Partner logo */}
-                    <div className="absolute inset-0 flex items-center justify-center p-6">
-                      <div className="relative w-full h-full">
-                        <Image
-                          unoptimized
-                          src={logo}
-                          alt={`Partner logo ${index + 1}`}
-                          fill
-                          className="object-contain"
-                        />
+            <div className="flex">
+              <div className="animate-scroll-horizontal flex gap-6 flex-shrink-0">
+                {duplicatedLogos.map((logo, index) => (
+                  <div
+                    key={index}
+                    className="flex-shrink-0 w-32"
+                  >
+                    {/* Partner card */}
+                    <div className="relative w-full aspect-square">
+                      <Image
+                        unoptimized
+                        src="/Partner-frame.svg"
+                        alt={`Partner frame ${index}`}
+                        fill
+                        className="object-contain"
+                      />
+                      {/* Partner logo */}
+                      <div className="absolute inset-0 flex items-center justify-center p-6">
+                        <div className="relative w-full h-full">
+                          <Image
+                            unoptimized
+                            src={logo}
+                            alt={`Partner logo ${index + 1}`}
+                            fill
+                            className="object-contain"
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
@@ -138,71 +161,75 @@ export default function Partners() {
             <div className="flex flex-col gap-4">
               {/* First row - scrolls left */}
               <div className="overflow-hidden">
-                <div className="animate-scroll-horizontal-mobile flex gap-4">
-                  {triplicatedFirstRow.map((logo, index) => (
-                    <div
-                      key={index}
-                      className="flex-shrink-0 w-24"
-                    >
-                      {/* Partner card */}
-                      <div className="relative w-full aspect-square">
-                        <Image
-                          unoptimized
-                          src="/Partner-frame.svg"
-                          alt={`Partner frame ${index}`}
-                          fill
-                          className="object-contain"
-                        />
-                        {/* Partner logo */}
-                        <div className="absolute inset-0 flex items-center justify-center p-4">
-                          <div className="relative w-4/5 h-4/5">
-                            <Image
-                              unoptimized
-                              src={logo}
-                              alt={`Partner logo ${index + 1}`}
-                              fill
-                              className="object-contain"
-                            />
+                <div className="flex">
+                  <div className="animate-scroll-horizontal-mobile flex gap-4 flex-shrink-0">
+                    {duplicatedFirstRow.map((logo, index) => (
+                      <div
+                        key={index}
+                        className="flex-shrink-0 w-24"
+                      >
+                        {/* Partner card */}
+                        <div className="relative w-full aspect-square">
+                          <Image
+                            unoptimized
+                            src="/Partner-frame.svg"
+                            alt={`Partner frame ${index}`}
+                            fill
+                            className="object-contain"
+                          />
+                          {/* Partner logo */}
+                          <div className="absolute inset-0 flex items-center justify-center p-4">
+                            <div className="relative w-4/5 h-4/5">
+                              <Image
+                                unoptimized
+                                src={logo}
+                                alt={`Partner logo ${index + 1}`}
+                                fill
+                                className="object-contain"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
 
               {/* Second row - scrolls left (slightly different speed for visual interest) */}
               <div className="overflow-hidden">
-                <div className="animate-scroll-horizontal-mobile-slow flex gap-4">
-                  {triplicatedSecondRow.map((logo, index) => (
-                    <div
-                      key={index}
-                      className="flex-shrink-0 w-24"
-                    >
-                      {/* Partner card */}
-                      <div className="relative w-full aspect-square">
-                        <Image
-                          unoptimized
-                          src="/Partner-frame.svg"
-                          alt={`Partner frame ${index}`}
-                          fill
-                          className="object-contain"
-                        />
-                        {/* Partner logo */}
-                        <div className="absolute inset-0 flex items-center justify-center p-4">
-                          <div className="relative w-4/5 h-4/5">
-                            <Image
-                              unoptimized
-                              src={logo}
-                              alt={`Partner logo ${index + 1}`}
-                              fill
-                              className="object-contain"
-                            />
+                <div className="flex">
+                  <div className="animate-scroll-horizontal-mobile-slow flex gap-4 flex-shrink-0">
+                    {duplicatedSecondRow.map((logo, index) => (
+                      <div
+                        key={index}
+                        className="flex-shrink-0 w-24"
+                      >
+                        {/* Partner card */}
+                        <div className="relative w-full aspect-square">
+                          <Image
+                            unoptimized
+                            src="/Partner-frame.svg"
+                            alt={`Partner frame ${index}`}
+                            fill
+                            className="object-contain"
+                          />
+                          {/* Partner logo */}
+                          <div className="absolute inset-0 flex items-center justify-center p-4">
+                            <div className="relative w-4/5 h-4/5">
+                              <Image
+                                unoptimized
+                                src={logo}
+                                alt={`Partner logo ${index + 1}`}
+                                fill
+                                className="object-contain"
+                              />
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -216,7 +243,7 @@ export default function Partners() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-100% / 3));
+            transform: translateX(-50%);
           }
         }
 
@@ -225,20 +252,20 @@ export default function Partners() {
             transform: translateX(0);
           }
           100% {
-            transform: translateX(calc(-100% / 3));
+            transform: translateX(-50%);
           }
         }
 
         .animate-scroll-horizontal {
-          animation: scroll-horizontal 10s linear infinite;
+          animation: scroll-horizontal 100s linear infinite;
         }
 
         .animate-scroll-horizontal-mobile {
-          animation: scroll-horizontal-mobile 5s linear infinite;
+          animation: scroll-horizontal-mobile 70s linear infinite;
         }
 
         .animate-scroll-horizontal-mobile-slow {
-          animation: scroll-horizontal-mobile 5s linear infinite;
+          animation: scroll-horizontal-mobile 70s linear infinite;
         }
 
         .animate-scroll-horizontal:hover,

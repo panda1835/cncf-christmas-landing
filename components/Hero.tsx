@@ -71,7 +71,7 @@ export default function Hero() {
         {[...Array(50)].map((_, i) => (
           <div
             key={i}
-            className="absolute animate-snowfall"
+            className="absolute animate-snowfall animate-snowfall-mobile md:animate-snowfall"
             style={{
               left: `${Math.random() * 100}%`,
               top: `-${Math.random() * 20}%`,
@@ -80,7 +80,7 @@ export default function Hero() {
             }}
           >
             <div
-              className="w-1 h-1 bg-white rounded-full opacity-80"
+              className="w-1 h-1 md:w-2 md:h-2 bg-white rounded-full opacity-80"
               style={{
                 boxShadow: "0 0 3px rgba(255, 255, 255, 0.8)",
               }}
@@ -103,7 +103,7 @@ export default function Hero() {
             }}
           >
             <div
-              className="w-2 h-0.5 bg-yellow-300 rounded-full opacity-70"
+              className="w-2 h-0.5 md:w-3 md:h-1 bg-yellow-300 rounded-full opacity-70"
               style={{
                 boxShadow: "0 0 4px rgba(255, 235, 59, 0.8)",
                 transform: `rotate(${s.rotation}deg)`,
@@ -246,8 +246,7 @@ export default function Hero() {
 
             {/* Santa - Positioned on top of pinetree */}
             <div
-              className="absolute left-1/2 transform -translate-x-1/2 top-0 z-10 animate-float -mt-24 md:-mt-30"
-              style={{ animationDelay: "0s" }}
+              className="absolute left-1/2 transform -translate-x-1/2 top-0 z-10 animate-float-slow -mt-24 md:-mt-30"
             >
               <Image
                 unoptimized
@@ -261,8 +260,7 @@ export default function Hero() {
 
             {/* Kid 1 (left) - Below buttons */}
             <div
-              className="absolute left-2 md:left-1/9 -top-4/3 md:-top-1/4 z-5 animate-float"
-              style={{ animationDelay: "0.5s" }}
+              className="absolute left-2 md:left-1/9 -top-4/3 md:-top-1/4 z-5"
             >
               <Image
                 unoptimized
@@ -276,8 +274,7 @@ export default function Hero() {
 
             {/* Kid 2 (right) - Below buttons */}
             <div
-              className="absolute right-4 md:right-1/9 -top-8/9 md:-top-1/3 z-5 animate-float"
-              style={{ animationDelay: "1s" }}
+              className="absolute right-4 md:right-1/9 -top-8/9 md:-top-1/3 z-5"
             >
               <Image
                 unoptimized
@@ -589,6 +586,7 @@ export default function Hero() {
           </div>
         )}
 
+
         {/* Welcome Modal - First Visit Only */}
         {showWelcomeModal && (
           <div
@@ -660,124 +658,6 @@ export default function Hero() {
             </div>
           </div>
         )}
-
-        <style jsx>{`
-          @keyframes snowfall {
-            0% {
-              transform: translateY(0) rotate(0deg);
-              opacity: 0;
-            }
-            10% {
-              opacity: 1;
-            }
-            90% {
-              opacity: 1;
-            }
-            100% {
-              transform: translateY(100vh) rotate(360deg);
-              opacity: 0;
-            }
-          }
-
-          @keyframes sprinkle-fall {
-            0% {
-              transform: translateY(0) rotate(0deg);
-              opacity: 0;
-            }
-            10% {
-              opacity: 1;
-            }
-            90% {
-              opacity: 1;
-            }
-            100% {
-              transform: translateY(100vh) rotate(180deg);
-              opacity: 0;
-            }
-          }
-
-          @keyframes swing {
-            0%,
-            100% {
-              transform: rotate(-10deg);
-            }
-            50% {
-              transform: rotate(10deg);
-            }
-          }
-
-          @keyframes aura-expand {
-            0% {
-              transform: scale(1);
-              opacity: 0.4;
-            }
-            50% {
-              transform: scale(2);
-              opacity: 0.2;
-            }
-            100% {
-              transform: scale(3);
-              opacity: 0;
-            }
-          }
-
-          .animate-snowfall {
-            animation: snowfall linear infinite;
-          }
-
-          .animate-sprinkle-fall {
-            animation: sprinkle-fall linear infinite;
-          }
-
-          .animate-swing {
-            animation: swing 2s ease-in-out infinite;
-          }
-
-          .animate-aura-expand {
-            animation: aura-expand 2.5s ease-out infinite;
-          }
-
-          @keyframes zoom-in {
-            0% {
-              opacity: 0;
-              transform: scale(0.5);
-            }
-            100% {
-              opacity: 1;
-              transform: scale(1);
-            }
-          }
-
-          @keyframes fade-in {
-            0% {
-              opacity: 0;
-            }
-            100% {
-              opacity: 1;
-            }
-          }
-
-          @keyframes spin-slow {
-            0% {
-              transform: rotate(0deg);
-            }
-            100% {
-              transform: rotate(360deg);
-            }
-          }
-
-          .animate-zoom-in {
-            animation: zoom-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-          }
-
-          .animate-fade-in {
-            animation: fade-in 0.3s ease-out forwards;
-          }
-
-          .animate-spin-slow {
-            animation: spin-slow 8s linear infinite;
-          }
-        `}</style>
       </div>
     </section>
   );

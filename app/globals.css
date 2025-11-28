@@ -229,3 +229,161 @@ button {
   }
 }
 
+/* Snowfall Animation for Hero */
+@keyframes snowfall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-snowfall {
+  animation: snowfall linear infinite;
+}
+
+/* Sprinkle Fall Animation for Hero */
+@keyframes sprinkle-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.animate-sprinkle-fall {
+  animation: sprinkle-fall linear infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Slower Floating Animation for Santa on Desktop */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 3s ease-in-out infinite;
+}
+
+/* Slower Snowfall for Mobile */
+@media (max-width: 768px) {
+  .animate-snowfall-mobile {
+    animation-duration: 20s !important;
+  }
+  
+  /* Shorter float for Santa on mobile */
+  .animate-float-slow {
+    animation: float-mobile 5s ease-in-out infinite;
+  }
+}
+
+/* Mobile Float Animation - Shorter movement */
+@keyframes float-mobile {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Swing Animation for Stars */
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+.animate-swing {
+  animation: swing 2s ease-in-out infinite;
+}
+
+/* Aura Expand Animation for Stars */
+@keyframes aura-expand {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.animate-aura-expand {
+  animation: aura-expand 2.5s ease-out infinite;
+}
+
+/* Zoom In Animation for Modal */
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoom-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Spin Slow Animation */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
