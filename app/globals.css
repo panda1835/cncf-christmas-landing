@@ -1,8 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import "tailwindcss";
 
 :root {
+  /* Christmas Theme Colors */
+  --christmas-red-dark: #590310;
+  --christmas-red: #ea0025;
+  --christmas-red-bright: #ff2f3b;
+  --christmas-red-medium: #b8001f;
+  --christmas-brown: #8c421d;
+  --christmas-green: #1d8743;
+  
+  /* Background Colors */
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Depth/Shadow values */
+  --depth-0: 0px;
+  --depth-100: 4px;
+  --depth-400: 16px;
+  --depth-800: 32px;
+  
+  /* Black opacity values */
+  --black-100: rgba(12, 12, 13, 0.05);
+  --black-200: rgba(12, 12, 13, 0.1);
 }
 
 @theme inline {
@@ -19,10 +39,88 @@
   }
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Lobster Font Utility */
+.font-lobster {
+  font-family: 'Lobster', cursive;
+}
+
+/* Gradient Text Utilities */
+.gradient-text-red {
+  background: linear-gradient(to bottom, var(--christmas-red-dark), var(--christmas-red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-transparent {
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient Background Utilities */
+.gradient-bg-red {
+  background: linear-gradient(to bottom, var(--christmas-red-bright), var(--christmas-red-medium));
+}
+
+/* Circular Mask Utilities */
+.circular-mask {
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.circular-mask img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Text Shadow Utilities */
+.text-shadow-christmas {
+  text-shadow: 
+    var(--depth-0) var(--depth-100) var(--depth-100) var(--black-100),
+    var(--depth-0) var(--depth-400) var(--depth-800) var(--black-200);
+}
+
+/* Progress Bar Styles */
+.progress-container {
+  position: relative;
+  border: 7px solid var(--christmas-brown);
+  border-radius: 100px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: linear-gradient(to bottom, var(--christmas-red-bright), var(--christmas-red-medium));
+  border: 5px solid var(--christmas-brown);
+  border-radius: 100px;
+  opacity: 0.5;
+  height: 100%;
+  transition: width 1s ease-out;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+}
+
+.progress-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border-radius: 100px;
 }
 
 /* Button hover effects */
@@ -72,3 +170,220 @@ button {
     transform: scale(1.15) translateY(-8px);
   }
 }
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+/* Progress fill animation */
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--progress-width, 50%);
+  }
+}
+
+.animate-progress {
+  animation: fillProgress 1.5s ease-out forwards;
+}
+
+/* Falling Snow Animation */
+.snow-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.snowflake {
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+/* Snowfall Animation for Hero */
+@keyframes snowfall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.animate-snowfall {
+  animation: snowfall linear infinite;
+}
+
+/* Sprinkle Fall Animation for Hero */
+@keyframes sprinkle-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(150vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.animate-sprinkle-fall {
+  animation: sprinkle-fall linear infinite;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Slower Floating Animation for Santa on Desktop */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 3s ease-in-out infinite;
+}
+
+/* Slower Snowfall for Mobile */
+@media (max-width: 768px) {
+  .animate-snowfall-mobile {
+    animation-duration: 20s !important;
+  }
+  
+  /* Shorter float for Santa on mobile */
+  .animate-float-slow {
+    animation: float-mobile 5s ease-in-out infinite;
+  }
+}
+
+/* Mobile Float Animation - Shorter movement */
+@keyframes float-mobile {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Swing Animation for Stars */
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+}
+
+.animate-swing {
+  animation: swing 2s ease-in-out infinite;
+}
+
+/* Aura Expand Animation for Stars */
+@keyframes aura-expand {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(2);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+.animate-aura-expand {
+  animation: aura-expand 2.5s ease-out infinite;
+}
+
+/* Zoom In Animation for Modal */
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoom-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Spin Slow Animation */
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
