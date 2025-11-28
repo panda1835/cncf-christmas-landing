@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import Modal from "./Modal";
+import LocationsModal from "./LocationsModal";
 
 export default function JoinUs() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -497,13 +497,11 @@ export default function JoinUs() {
         }
       `}</style>
 
-      <Modal
+      <LocationsModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        title="All Locations"
-      >
-        <p>This is a placeholder for the locations list. Coming soon!</p>
-      </Modal>
+      />
     </section>
   );
 }
+
