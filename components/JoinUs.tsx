@@ -103,179 +103,22 @@ export default function JoinUs() {
           </div>
         </div>
 
-        {/* First Section - Offline Wish Trees (Image Left, Text Right) */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "3rem",
-            marginBottom: "4rem",
-            flexWrap: "wrap",
-          }}
-        >
+        {/* First Section - Online Wish Trees (Image Left, Text Right) */}
+        <div className="flex flex-col sm:flex-row items-center gap-12 mb-12">
           {/* Image Container with Decorations */}
-          <div
-            style={{
-              position: "relative",
-              flex: "1 1 400px",
-              minWidth: "300px",
-              maxWidth: "500px",
-              marginBottom: "0",
-            }}
-          >
-            {/* Star Decoration - Top Left */}
-            <div
-              style={{
-                position: "absolute",
-                top: "-20px",
-                left: "5%",
-                width: "80px",
-                height: "80px",
-                zIndex: 2,
-              }}
-            >
+          <div className="relative flex-1 min-w-[300px] max-w-[500px] mb-0">
+            <div className="relative rounded-[60px] overflow-hidden inline-block">
               <Image
                 unoptimized
-                src="/Joinus-star.png"
-                alt="star"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </div>
-
-            {/* Main Image with Golden Border */}
-            <div
-              style={{
-                position: "relative",
-                width: "100%",
-                aspectRatio: "16/9",
-                borderRadius: "60px",
-                border: "6px solid #D4AF37",
-                overflow: "hidden",
-                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
-                background: "#000",
-              }}
-            >
-              <Image
-                unoptimized
-                src="/Joinus-image1.png"
+                src="/Joinus-image2.png"
                 alt="Offline Wish Trees"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-
-            {/* Bell Decoration - Bottom Center */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: "-50px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                width: "140px",
-                height: "140px",
-                zIndex: 2,
-              }}
-              className="hidden md:flex"
-            >
-              <Image
-                unoptimized
-                src="/Joinus-bell.png"
-                alt="decoration"
-                fill
-                style={{ objectFit: "contain" }}
+                width={800}
+                height={600}
+                className="object-cover"
               />
             </div>
           </div>
 
-          {/* Content */}
-          <div
-            style={{
-              flex: "1 1 400px",
-              color: "white",
-              textAlign: "left",
-            }}
-          >
-            <h2
-              style={{
-                fontFamily: "var(--font-lobster)",
-                fontWeight: "400",
-                margin: "0 0 1.5rem 0",
-                color: "#FFD700",
-              }}
-              className="text-4xl"
-            >
-              Offline - Wish Trees
-            </h2>
-
-            <ul
-              style={{
-                listStyle: "none",
-                padding: 0,
-                fontFamily: "var(--font-be-vietnam)",
-                margin: "0 0 2rem 0",
-              }}
-              className="text-lg"
-            >
-              <li style={{ marginBottom: "0.75rem" }}>
-                🌟 Visit our partner restaurants, cafés, hotels and spas across
-                Ho Chi Minh City.
-              </li>
-              <li>
-                🌟 Choose a child&apos;s wish from the tree, buy the gift, wrap
-                it, attach the wish card and return it before December 20.
-              </li>
-            </ul>
-
-            <button
-              onClick={() => setIsModalOpen(true)}
-              style={{
-                width: "288px",
-                height: "64px",
-                background:
-                  "linear-gradient(to bottom, #EF4444 0%, #B91C1C 100%)",
-                borderRadius: "20px",
-                boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
-                border: "4px solid transparent",
-                backgroundImage:
-                  "linear-gradient(to bottom, #EF4444 0%, #B91C1C 100%), linear-gradient(to bottom, #8C421D 0%, #FBE67B 25%, #FCFBE7 50%, #F7D14E 75%, #D4A041 100%)",
-                backgroundOrigin: "border-box",
-                backgroundClip: "padding-box, border-box",
-                color: "white",
-                fontSize: "20px",
-                fontFamily: "var(--font-be-vietnam)",
-                fontWeight: "700",
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-4px)";
-                e.currentTarget.style.boxShadow =
-                  "0px 8px 16px 0px rgba(0, 0, 0, 0.35)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow =
-                  "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
-              }}
-            >
-              See All Locations
-            </button>
-          </div>
-        </div>
-
-        {/* Second Section - Online Donations (Text Left, Image Right) */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            gap: "3rem",
-            flexWrap: "wrap",
-            marginTop: "6rem",
-          }}
-        >
           {/* Content */}
           <div
             style={{
@@ -361,80 +204,99 @@ export default function JoinUs() {
               Give a $10 Gift
             </button>
           </div>
+          
+        </div>
 
-          {/* Image Container with Decorations */}
+        {/* Second Section - Offline Donations (Text Left, Image Right) */}
+        <div className="flex flex-col sm:flex-row items-center gap-12 mb-12">
+          {/* Content */}
           <div
             style={{
-              position: "relative",
               flex: "1 1 400px",
-              minWidth: "300px",
-              maxWidth: "500px",
-              order: 2,
+              color: "white",
+              textAlign: "left",
             }}
           >
-            {/* Bell Decoration - Top Right */}
-            <div
+            <h2
               style={{
-                position: "absolute",
-                top: "-30px",
-                left: "5%",
-                width: "100px",
-                height: "100px",
-                zIndex: 2,
+                fontFamily: "var(--font-lobster)",
+                fontWeight: "400",
+                margin: "0 0 1.5rem 0",
+                color: "#FFD700",
               }}
+              className="text-4xl"
             >
-              <Image
-                unoptimized
-                src="/Joinus-bell.png"
-                alt="bell"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </div>
+              Offline - Wish Trees
+            </h2>
 
-            {/* Main Image with Blue/Cyan Border */}
-            <div
+            <ul
               style={{
-                position: "relative",
-                width: "100%",
-                aspectRatio: "16/9",
-                borderRadius: "60px",
-                border: "6px solid #06B6D4",
-                overflow: "hidden",
-                boxShadow: "0 8px 24px rgba(0, 0, 0, 0.3)",
-                background: "#000",
+                listStyle: "none",
+                padding: 0,
+                fontFamily: "var(--font-be-vietnam)",
+                margin: "0 0 2rem 0",
               }}
+              className="text-lg"
             >
-              <Image
-                unoptimized
-                src="/Joinus-image2.png"
-                alt="Online Donations"
-                fill
-                style={{ objectFit: "cover" }}
-              />
-            </div>
+              <li style={{ marginBottom: "0.75rem" }}>
+                🌟 Visit our partner restaurants, cafés, hotels and spas across
+                Ho Chi Minh City, Vietnam.
+              </li>
+              <li>
+                🌟 Choose a child&apos;s wish from the tree, buy the gift, wrap
+                it, attach the wish card and return it before December 20.
+              </li>
+            </ul>
 
-            {/* Star Decoration - Bottom Left */}
-            <div
+            <button
+              onClick={() => setIsModalOpen(true)}
               style={{
-                position: "absolute",
-                bottom: "-40px",
-                right: "10%",
-                width: "90px",
-                height: "90px",
-                zIndex: 2,
+                width: "288px",
+                height: "64px",
+                background:
+                  "linear-gradient(to bottom, #EF4444 0%, #B91C1C 100%)",
+                borderRadius: "20px",
+                boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+                border: "4px solid transparent",
+                backgroundImage:
+                  "linear-gradient(to bottom, #EF4444 0%, #B91C1C 100%), linear-gradient(to bottom, #8C421D 0%, #FBE67B 25%, #FCFBE7 50%, #F7D14E 75%, #D4A041 100%)",
+                backgroundOrigin: "border-box",
+                backgroundClip: "padding-box, border-box",
+                color: "white",
+                fontSize: "20px",
+                fontFamily: "var(--font-be-vietnam)",
+                fontWeight: "700",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
               }}
-              className="hidden sm:flex"
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow =
+                  "0px 8px 16px 0px rgba(0, 0, 0, 0.35)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
+              }}
             >
-              <Image
-                unoptimized
-                src="/Joinus-star.png"
-                alt="star"
-                fill
-                style={{ objectFit: "contain" }}
-              />
-            </div>
+              See All Locations
+            </button>
           </div>
+
+          {/* Image Container with Decorations */}
+            <div className="relative flex-1 min-w-[300px] max-w-[500px] mb-0">
+              <div className="relative rounded-[60px] overflow-hidden inline-block">
+                <Image
+                  unoptimized
+                  src="/Joinus-image1.png"
+                  alt="Offline Wish Trees"
+                  width={800}
+                  height={600}
+                  className="object-cover"
+                />
+              </div>
+            </div>
         </div>
       </div>
 
@@ -491,9 +353,6 @@ export default function JoinUs() {
             max-width: 100% !important;
             margin-bottom: 0 !important;
             flex: 1 1 100% !important;
-          }
-          section > div > div:nth-child(3) > div:last-child > div:nth-child(1) {
-            display: none !important;
           }
         }
       `}</style>

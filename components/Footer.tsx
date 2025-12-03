@@ -27,7 +27,7 @@ export default function Footer() {
               Sharing the joy, spreading the magic.
             </p>
 
-            <button
+            {/* <button
             onClick={() => window.open("https://www.cncf.org/donate", "_blank")}
             style={{
               background: "none",
@@ -53,7 +53,41 @@ export default function Footer() {
               width={200}
               height={200}
             />
-          </button>
+          </button> */}
+          <button
+              style={{
+                
+                background:
+                  "linear-gradient(to bottom, #EF4444 0%, #B91C1C 100%)",
+                borderRadius: "20px",
+                boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+                border: "4px solid transparent",
+                backgroundImage:
+                  "linear-gradient(to bottom, #EF4444 0%, #B91C1C 100%), linear-gradient(to bottom, #8C421D 0%, #FBE67B 25%, #FCFBE7 50%, #F7D14E 75%, #D4A041 100%)",
+                backgroundOrigin: "border-box",
+                backgroundClip: "padding-box, border-box",
+                color: "white",
+                fontSize: "16px",
+                fontFamily: "var(--font-be-vietnam)",
+                fontWeight: "700",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+              }}
+              className="py-2 px-6 mt-4 mb-4"
+              onClick={() => window.open("https://www.cncf.org/donate", "_blank")}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-4px)";
+                e.currentTarget.style.boxShadow =
+                  "0px 8px 16px 0px rgba(0, 0, 0, 0.35)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow =
+                  "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
+              }}
+            >
+              Give a $10 Gift
+            </button>
           </div>
 
           {/* Certified Logo - Second on mobile, right on desktop */}

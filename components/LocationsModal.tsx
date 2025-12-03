@@ -132,7 +132,7 @@ export default function LocationsModal({
             onClick={onClose}
             style={{
               background: "rgba(255, 255, 255, 0.8)",
-              border: "2px solid #173f35",
+              border: "2px ",
               borderRadius: "50%",
               fontSize: "24px",
               cursor: "pointer",
