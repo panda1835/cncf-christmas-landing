@@ -145,11 +145,11 @@ export default function Letter() {
             style={{
               animation: "letterSlideIn 1.2s ease-out 0.6s backwards",
             }}
-            className="w-full max-w-[800px] md:max-w-[600px] px-4"
+            className="w-full max-w-[800px] md:max-w-[600px]"
           >
             <Image
               unoptimized
-              src="/Letter-letter.svg"
+              src="/Letter-letter.new.svg"
               alt="Letter Content"
               width={800}
               height={640}
