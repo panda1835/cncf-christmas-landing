@@ -24,8 +24,10 @@ export default function Page() {
         setIsMusicPlaying(true);
         // Remove listeners after first successful play
         window.removeEventListener("scroll", handleFirstInteraction);
+        window.removeEventListener("wheel", handleFirstInteraction);
         document.removeEventListener("click", handleFirstInteraction);
         document.removeEventListener("keydown", handleFirstInteraction);
+        document.removeEventListener("touchstart", handleFirstInteraction);
       } catch (error) {
         console.log("Play failed:", error);
       }
@@ -41,14 +43,22 @@ export default function Page() {
         window.addEventListener("scroll", handleFirstInteraction, {
           passive: true,
         });
+        window.addEventListener("wheel", handleFirstInteraction, {
+          passive: true,
+        });
         document.addEventListener("click", handleFirstInteraction);
         document.addEventListener("keydown", handleFirstInteraction);
+        document.addEventListener("touchstart", handleFirstInteraction, {
+          passive: true,
+        });
       });
 
     return () => {
       window.removeEventListener("scroll", handleFirstInteraction);
+      window.removeEventListener("wheel", handleFirstInteraction);
       document.removeEventListener("click", handleFirstInteraction);
       document.removeEventListener("keydown", handleFirstInteraction);
+      document.removeEventListener("touchstart", handleFirstInteraction);
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current = null;
