@@ -169,13 +169,15 @@ export default function FloatingButtons({
           position: absolute;
           top: 50%;
           left: 50%;
-          transform: translate(-50%, -50%);
           width: 100%;
           height: 100%;
           border: 3px solid rgba(251, 230, 123, 0.8);
           border-radius: 50%;
           pointer-events: none;
           z-index: -1;
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 0;
+          will-change: transform, opacity;
         }
 
         .wave-1 {
@@ -202,13 +204,14 @@ export default function FloatingButtons({
 
         @keyframes soundWave {
           0% {
-            width: 100%;
-            height: 100%;
-            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0.8;
+          }
+          70% {
+            opacity: 0;
           }
           100% {
-            width: 220%;
-            height: 220%;
+            transform: translate(-50%, -50%) scale(2.2);
             opacity: 0;
           }
         }
