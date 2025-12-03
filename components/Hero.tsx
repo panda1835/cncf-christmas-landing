@@ -720,7 +720,7 @@ export default function Hero() {
                   {/* Instructions Flow */}
                   <div className="relative flex flex-col items-center md:space-y-2 mb-3">
                     {/* Left Star */}
-                    <div className="absolute left-2 md:left-1/9 top-1/3 -translate-y-1/2 md:-translate-x-12">
+                    <div className="absolute left-0 md:left-1/9 top-1/3 -translate-y-1/2 md:-translate-x-12">
                       <div className="relative">
                         {/* Expanding Aura Circles */}
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -743,7 +743,7 @@ export default function Hero() {
                     </div>
 
                     {/* Right Star */}
-                    <div className="absolute right-2 md:right-1/9 top-1/3 -translate-y-1/2 md:translate-x-12">
+                    <div className="absolute right-0 md:right-1/9 top-1/3 -translate-y-1/2 md:translate-x-12">
                       <div className="relative">
                         {/* Expanding Aura Circles */}
                         <div className="absolute inset-0 flex items-center justify-center">
