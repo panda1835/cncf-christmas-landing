@@ -23,6 +23,7 @@ export default function Page() {
         await audioRef.current?.play();
         setIsMusicPlaying(true);
         // Remove listeners after first successful play
+        window.removeEventListener("scroll", handleFirstInteraction);
         document.removeEventListener("click", handleFirstInteraction);
         document.removeEventListener("keydown", handleFirstInteraction);
       } catch (error) {
@@ -35,13 +36,17 @@ export default function Page() {
       .play()
       .then(() => setIsMusicPlaying(true))
       .catch(() => {
-        // If autoplay fails, wait for user interaction
+        // If autoplay fails, wait for user interaction (scroll, click, or keydown)
         setIsMusicPlaying(false);
+        window.addEventListener("scroll", handleFirstInteraction, {
+          passive: true,
+        });
         document.addEventListener("click", handleFirstInteraction);
         document.addEventListener("keydown", handleFirstInteraction);
       });
 
     return () => {
+      window.removeEventListener("scroll", handleFirstInteraction);
       document.removeEventListener("click", handleFirstInteraction);
       document.removeEventListener("keydown", handleFirstInteraction);
       if (audioRef.current) {
