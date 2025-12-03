@@ -171,7 +171,6 @@ export default function CTA() {
                   borderRadius: "32px 32px 0 0",
                   backgroundColor: "#1a1a1a",
                   marginBottom: "1.5rem",
-                  backgroundImage: "url(/star-ornament.jpg)",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   display: "flex",
@@ -268,7 +267,6 @@ export default function CTA() {
                   borderRadius: "32px 32px 0 0",
                   backgroundColor: "#1a1a1a",
                   marginBottom: "1.5rem",
-                  backgroundImage: "url(/christmas-bauble.jpg)",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   display: "flex",
@@ -298,7 +296,9 @@ export default function CTA() {
                 Give a $10 Gift
               </h3>
               <button
-                onClick={() => window.open("https://www.cncf.org/donate", "_blank")}
+                onClick={() =>
+                  window.open("https://www.cncf.org/donate", "_blank")
+                }
                 style={{
                   background:
                     "linear-gradient(90deg, #004D40 0%, #00B395 100%)",
@@ -398,8 +398,6 @@ export default function CTA() {
           }
         }
       `}</style>
-
-
     </div>
   );
 }
