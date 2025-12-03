@@ -220,9 +220,19 @@ export default function Hero() {
                   .getElementById("join-us")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="cursor-pointer bg-[#D62828] hover:bg-[#b91c1c] text-white font-be-vietnam font-bold px-8 py-3 rounded-full text-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-4 border-[#F2CC8F]"
+              className="cursor-pointer bg-[#D62828] hover:bg-[#b91c1c] font-be-vietnam font-bold px-8 py-3 rounded-full text-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-4 border-[#F2CC8F]"
             >
-              Make A Wish Come True
+              <span
+                className="bg-clip-text text-transparent"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(to bottom, #FCFBE7, #F7D14E)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                }}
+              >
+                Make A Wish Come True
+              </span>
             </button>
             <button
               onClick={() =>
