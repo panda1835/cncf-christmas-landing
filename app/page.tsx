@@ -14,27 +14,51 @@ export default function Page() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    // Create audio element
     audioRef.current = new Audio("/sound/audio.mp3");
     audioRef.current.loop = true;
-    audioRef.current.volume = 0.3; // Set volume to 30% for background music
+    audioRef.current.volume = 0.3;
 
-    // Try to autoplay (may be blocked by browser policies)
-    const playAudio = async () => {
+    const handleFirstInteraction = async () => {
       try {
         await audioRef.current?.play();
         setIsMusicPlaying(true);
+        // Remove listeners after first successful play
+        window.removeEventListener("scroll", handleFirstInteraction);
+        window.removeEventListener("wheel", handleFirstInteraction);
+        document.removeEventListener("click", handleFirstInteraction);
+        document.removeEventListener("keydown", handleFirstInteraction);
+        document.removeEventListener("touchstart", handleFirstInteraction);
       } catch (error) {
-        // Autoplay was prevented, user will need to click the sound button
-        console.log("Autoplay prevented, user interaction required");
-        setIsMusicPlaying(false);
+        console.log("Play failed:", error);
       }
     };
 
-    playAudio();
+    // Try autoplay first
+    audioRef.current
+      .play()
+      .then(() => setIsMusicPlaying(true))
+      .catch(() => {
+        // If autoplay fails, wait for user interaction (scroll, click, or keydown)
+        setIsMusicPlaying(false);
+        window.addEventListener("scroll", handleFirstInteraction, {
+          passive: true,
+        });
+        window.addEventListener("wheel", handleFirstInteraction, {
+          passive: true,
+        });
+        document.addEventListener("click", handleFirstInteraction);
+        document.addEventListener("keydown", handleFirstInteraction);
+        document.addEventListener("touchstart", handleFirstInteraction, {
+          passive: true,
+        });
+      });
 
-    // Cleanup
     return () => {
+      window.removeEventListener("scroll", handleFirstInteraction);
+      window.removeEventListener("wheel", handleFirstInteraction);
+      document.removeEventListener("click", handleFirstInteraction);
+      document.removeEventListener("keydown", handleFirstInteraction);
+      document.removeEventListener("touchstart", handleFirstInteraction);
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current = null;
