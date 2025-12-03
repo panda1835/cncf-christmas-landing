@@ -10,7 +10,7 @@ import Footer from "../components/Footer";
 import FloatingButtons from "../components/FloatingButtons";
 
 export default function Page() {
-  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const [isMusicPlaying, setIsMusicPlaying] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
@@ -64,7 +64,10 @@ export default function Page() {
         <Partners />
       </main>
       <Footer />
-      <FloatingButtons isMusicPlaying={isMusicPlaying} onToggleMusic={toggleMusic} />
+      <FloatingButtons
+        isMusicPlaying={isMusicPlaying}
+        onToggleMusic={toggleMusic}
+      />
     </div>
   );
 }
