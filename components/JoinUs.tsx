@@ -208,7 +208,7 @@ export default function JoinUs() {
         </div>
 
         {/* Second Section - Offline Donations (Text Left, Image Right) */}
-        <div className="flex flex-col sm:flex-row items-center gap-12 mb-12">
+        <div className="flex flex-col sm:flex-row items-center gap-12">
           {/* Content */}
           <div
             style={{
@@ -286,7 +286,7 @@ export default function JoinUs() {
 
           {/* Image Container with Decorations */}
             <div className="relative flex-1 min-w-[300px] max-w-[500px] mb-0">
-              <div className="relative rounded-[60px] overflow-hidden inline-block">
+              <div className="relative overflow-hidden inline-block">
                 <Image
                   unoptimized
                   src="/Joinus-image1.png"

@@ -99,7 +99,7 @@ export default function Partners() {
                 wordWrap: "break-word",
               }}
             >
-              Our Partner
+              Our Christmas Partners
             </h2>
             {/* Santa illustration */}
             <div className="relative w-20 h-20 md:w-24 md:h-24 shrink-0">

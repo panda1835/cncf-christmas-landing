@@ -8,6 +8,8 @@ export default function Hero() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showWelcomeModal, setShowWelcomeModal] = useState(false);
   const [hasShownWelcome, setHasShownWelcome] = useState(false);
+  const [showLetterPopup, setShowLetterPopup] = useState(false);
+  const [hasShownLetter, setHasShownLetter] = useState(false);
   const [currentWish, setCurrentWish] = useState(wishes[0]);
   const [currentStamp, setCurrentStamp] = useState("stamps-01.png");
   const [sprinkles, setSprinkles] = useState<
@@ -37,28 +39,40 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    // Set up intersection observer to detect when pine tree is in view
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasShownWelcome) {
-            setShowWelcomeModal(true);
-            setHasShownWelcome(true);
-            observer.disconnect();
-          }
-        });
-      },
-      {
-        threshold: 0.6, // Trigger when 30% of the pine tree is visible
+    // Show Letter popup 2 seconds after page load
+    const timer = setTimeout(() => {
+      if (!hasShownLetter) {
+        setShowLetterPopup(true);
+        setHasShownLetter(true);
       }
-    );
+    }, 2000);
 
-    if (pinetreeRef.current) {
-      observer.observe(pinetreeRef.current);
-    }
+    return () => clearTimeout(timer);
+  }, [hasShownLetter]);
 
-    return () => observer.disconnect();
-  }, [hasShownWelcome]);
+  // useEffect(() => {
+  //   // Set up intersection observer to detect when pine tree is in view
+  //   const observer = new IntersectionObserver(
+  //     (entries) => {
+  //       entries.forEach((entry) => {
+  //         if (entry.isIntersecting && !hasShownWelcome) {
+  //           setShowWelcomeModal(true);
+  //           setHasShownWelcome(true);
+  //           observer.disconnect();
+  //         }
+  //       });
+  //     },
+  //     {
+  //       threshold: 0.6, // Trigger when 60% of the pine tree is visible
+  //     }
+  //   );
+
+  //   if (pinetreeRef.current) {
+  //     observer.observe(pinetreeRef.current);
+  //   }
+
+  //   return () => observer.disconnect();
+  // }, [hasShownWelcome]);
 
   const openModalWithRandomWish = () => {
     // Get random wish
@@ -136,21 +150,21 @@ export default function Hero() {
       </div>
       {/* TOP WHITE HEADER BAR */}
       <div className="bg-transparent relative z-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-row items-center justify-between gap-3 sm:gap-6">
           {/* Logo */}
           <div className="flex items-center justify-center sm:justify-start">
             <Image
               unoptimized
               src="/Header-logo.svg"
               alt="A Thousand Wishes"
-              width={180}
-              height={60}
+              width={300}
+              height={300}
               className="h-40 w-auto"
             />
           </div>
 
           {/* Right Buttons */}
-          <div className="items-center gap-3 sm:gap-4 hidden md:flex">
+          <div className="items-center gap-3 sm:gap-4 md:flex">
             {/* Gift $10 Button (image) */}
             <button
               onClick={() =>
@@ -164,7 +178,7 @@ export default function Hero() {
                 alt="Gift a $10 Gift"
                 width={150}
                 height={100}
-                className="h-22 w-auto cursor-pointer"
+                className="h-28 w-auto cursor-pointer"
               />
             </button>
           </div>
@@ -206,7 +220,7 @@ export default function Hero() {
               For 36 years, CNCF has helped create Christmas miracles for
               vulnerable children across Vietnam and Mongolia.
               <br />
-              This year, you can be part of that miracle, Just one gift from you
+              This year, you can be part of that miracle. Just one gift from you
               can turn a difficult childhood into a Christmas they will remember
               forever
             </p>
@@ -649,6 +663,52 @@ export default function Hero() {
                     </button>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Letter Popup - First Visit Only */}
+        {showLetterPopup && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md animate-fade-in"
+            onClick={() => setShowLetterPopup(false)}
+          >
+            <div
+              className="relative max-w-2xl w-full mx-4 animate-zoom-in"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Close Button */}
+              <button
+                onClick={() => setShowLetterPopup(false)}
+                className="cursor-pointer hover:bg-red-700 absolute top-4 right-4 z-20 text-gray-400 hover:text-white transition-colors bg-white rounded-full p-2 shadow-md"
+                aria-label="Close popup"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+
+              {/* Letter Image */}
+              <div className="relative w-full">
+                <Image
+                  unoptimized
+                  src="/Letter-letter.svg"
+                  alt="Christmas Letter"
+                  width={800}
+                  height={600}
+                  className="w-full h-auto"
+                />
               </div>
             </div>
           </div>
