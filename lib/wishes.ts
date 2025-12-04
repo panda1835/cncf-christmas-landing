@@ -49,16 +49,16 @@ export const wishes: WishItem[] = [
   },
   {
     id: 7,
-    programme: "Tay Ninh Residential Center",
+    programme: "Tay Ninh Residential Center for Visually Impaired Children",
     message:
-      "I am from Tay Ninh Residential Center. I cannot see clearly, but sound brings the world closer to me.",
+      "I am from Tay Ninh Residential Center for Visually Impaired Children. I cannot see clearly, but sound brings the world closer to me.",
     wish: "This Christmas, I wish for a mini speaker so I can enjoy music with my friends.",
   },
   {
     id: 8,
-    programme: "Tay Ninh Residential Center",
+    programme: "Tay Ninh Residential Center for Visually Impaired Children",
     message:
-      "I am from Tay Ninh Residential Center. Even with my challenges, I try my best every day.",
+      "I am from Tay Ninh Residential Center for Visually Impaired Children. Even with my challenges, I try my best every day.",
     wish: "This Christmas, I wish for a smart watch to help me manage my time and routines.",
   },
   {
