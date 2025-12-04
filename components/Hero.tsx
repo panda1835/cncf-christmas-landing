@@ -10,6 +10,7 @@ export default function Hero() {
   const [hasShownWelcome, setHasShownWelcome] = useState(false);
   const [showLetterPopup, setShowLetterPopup] = useState(false);
   const [hasShownLetter, setHasShownLetter] = useState(false);
+  const [isLetterClosed, setIsLetterClosed] = useState(false);
   const [currentWish, setCurrentWish] = useState(wishes[0]);
   const [currentStamp, setCurrentStamp] = useState("stamps-01.png");
   const [sprinkles, setSprinkles] = useState<
@@ -50,29 +51,30 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [hasShownLetter]);
 
-  // useEffect(() => {
-  //   // Set up intersection observer to detect when pine tree is in view
-  //   const observer = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting && !hasShownWelcome) {
-  //           setShowWelcomeModal(true);
-  //           setHasShownWelcome(true);
-  //           observer.disconnect();
-  //         }
-  //       });
-  //     },
-  //     {
-  //       threshold: 0.6, // Trigger when 60% of the pine tree is visible
-  //     }
-  //   );
+  useEffect(() => {
+    // Set up intersection observer to detect when pine tree is in view
+    // Only show welcome modal if letter popup has been closed
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasShownWelcome && isLetterClosed) {
+            setShowWelcomeModal(true);
+            setHasShownWelcome(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.6, // Trigger when 60% of the pine tree is visible
+      }
+    );
 
-  //   if (pinetreeRef.current) {
-  //     observer.observe(pinetreeRef.current);
-  //   }
+    if (pinetreeRef.current && isLetterClosed) {
+      observer.observe(pinetreeRef.current);
+    }
 
-  //   return () => observer.disconnect();
-  // }, [hasShownWelcome]);
+    return () => observer.disconnect();
+  }, [hasShownWelcome, isLetterClosed]);
 
   const openModalWithRandomWish = () => {
     // Get random wish
@@ -672,7 +674,10 @@ export default function Hero() {
         {showLetterPopup && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md animate-fade-in"
-            onClick={() => setShowLetterPopup(false)}
+            onClick={() => {
+              setShowLetterPopup(false);
+              setIsLetterClosed(true);
+            }}
           >
             <div
               className="relative max-w-2xl w-full mx-4 animate-zoom-in"
@@ -680,8 +685,11 @@ export default function Hero() {
             >
               {/* Close Button */}
               <button
-                onClick={() => setShowLetterPopup(false)}
-                className="cursor-pointer hover:bg-red-700 absolute top-4 right-4 z-20 text-gray-400 hover:text-white transition-colors bg-white rounded-full p-2 shadow-md"
+                onClick={() => {
+                  setShowLetterPopup(false);
+                  setIsLetterClosed(true);
+                }}
+                className="cursor-pointer hover:bg-red-700 absolute top-1 right-1 md:top-4 md:right-4 z-20 text-gray-400 hover:text-white transition-colors bg-white rounded-full p-2 shadow-md"
                 aria-label="Close popup"
               >
                 <svg
@@ -772,8 +780,7 @@ export default function Hero() {
                       Each twinkling star holds a child&apos;s precious wish,
                       waiting for a kind heart to make it real.
                       <br className="" />
-                      Tap a star, discover their wish, and with just $10, help a
-                      child feel the magic of Christmas.
+                      Tap a star to discover their wish!
                     </p>
                   </div>
 
@@ -832,7 +839,7 @@ export default function Hero() {
                     {/* Touch a Star */}
                     <div className="flex flex-row gap-1.25 items-center">
                       <p className="font-be-vietnam text-sm md:text-base lg:text-lg text-gray-800">
-                        Touch
+                        Tap
                       </p>
                       <p
                         className="font-be-vietnam text-base md:text-lg lg:text-xl font-bold underline decoration-2"
