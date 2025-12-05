@@ -79,8 +79,8 @@ export default function Page() {
   };
 
   return (
-    <div className="">
-      <main>
+    <div>
+      <main role="main">
         <Hero />
         <Letter />
         <JoinUs />
