@@ -219,9 +219,9 @@ export default function Hero() {
           {/* Description */}
           <div className="text-center mb-8 max-w-7xl mx-auto">
             <p className="relative z-10 font-be-vietnam px-5 text-white text-lg leading-relaxed">
-              For 36 years, the Christina Noble Children's Foundation (CNCF) has
-              helped create Christmas miracles for vulnerable children across
-              Vietnam and Mongolia.
+              For 36 years, the Christina Noble Children&apos;s Foundation
+              (CNCF) has helped create Christmas miracles for vulnerable
+              children across Vietnam and Mongolia.
               <br />
               This year, you can be part of that miracle. Just one gift from you
               can turn a difficult childhood into a Christmas they will remember

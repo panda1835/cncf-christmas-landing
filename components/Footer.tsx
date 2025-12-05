@@ -19,11 +19,11 @@ export default function Footer() {
           </div>
 
           {/* Centered Quote - Third on mobile, center on desktop */}
-          <div className="mt-4 md:mt-0 flex-1 text-center md:text-center lg:text-center order-3 md:order-none w-full md:w-auto">
-            <h2 className="font-lobster text-xl sm:text-2xl leading-tight bg-gradient-to-r from-[#FBE67B] to-[#FCFBE7] bg-clip-text text-transparent">
-              Together, Let's Make This Christmas Brighter.
+          <div className="mt-4 md:mt-0 flex-1 text-center md:text-center lg:text-center order-3 md:order-0 w-full md:w-auto">
+            <h2 className="font-lobster text-xl sm:text-2xl leading-tight bg-linear-to-r from-[#FBE67B] to-[#FCFBE7] bg-clip-text text-transparent">
+              Together, Let&apos;s Make This Christmas Brighter.
             </h2>
-            <p className="font-lobster text-xl sm:text-2xl leading-tight mt-1 bg-gradient-to-r from-[#FBE67B] to-[#FCFBE7] bg-clip-text text-transparent">
+            <p className="font-lobster text-xl sm:text-2xl leading-tight mt-1 bg-linear-to-r from-[#FBE67B] to-[#FCFBE7] bg-clip-text text-transparent">
               Sharing the joy, spreading the magic.
             </p>
 
