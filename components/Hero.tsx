@@ -96,7 +96,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden"
+      className="relative overflow-hidden bg-center"
       style={{ backgroundImage: "url('/Background.svg')" }}
     >
       {/* Snowflakes/Sparkle Effect - At section level */}
@@ -148,7 +148,7 @@ export default function Hero() {
 
       {/* Horizontal Line */}
       <div className="absolute inset-0 flex">
-        <div className="w-full border-t-50 border-white mt-12" />
+        <div className="w-full border-t-50 border-white mt-12 md:mt-16" />
       </div>
       {/* TOP WHITE HEADER BAR */}
       <div className="bg-transparent relative z-20">
@@ -161,7 +161,7 @@ export default function Hero() {
               alt="A Thousand Wishes"
               width={300}
               height={300}
-              className="h-40 w-auto"
+              className="h-40 md:h-56 w-auto"
             />
           </div>
 
@@ -172,7 +172,7 @@ export default function Hero() {
               onClick={() =>
                 window.open("https://www.cncf.org/donate", "_blank")
               }
-              className="relative -top-5 transition-transform hover:scale-105"
+              className="relative -top-5 md:-top-10 transition-transform hover:scale-105"
             >
               <Image
                 unoptimized
@@ -180,7 +180,7 @@ export default function Hero() {
                 alt="Gift a $10 Gift"
                 width={150}
                 height={100}
-                className="h-28 w-auto cursor-pointer"
+                className="h-28 md:h-36 w-auto cursor-pointer"
               />
             </button>
           </div>
@@ -237,10 +237,13 @@ export default function Hero() {
                   .getElementById("join-us")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="cursor-pointer bg-[#D62828] hover:bg-[#b91c1c] font-be-vietnam font-bold px-8 py-3 rounded-full text-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-4 border-[#F2CC8F]"
+              className="cursor-pointer  font-be-vietnam font-bold px-8 py-3 rounded-full text-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-4 border-[#F2CC8F]"
+              style={{
+                backgroundImage: "linear-gradient(to bottom, #FF2F3B, #B8001F)",
+              }}
             >
               <span
-                className="bg-clip-text text-transparent"
+                className="bg-clip-text text-transparent text-xl"
                 style={{
                   backgroundImage:
                     "linear-gradient(to bottom, #FCFBE7, #F7D14E)",
@@ -257,7 +260,7 @@ export default function Hero() {
                   .getElementById("pinetree")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="cursor-pointer bg-[#C69E47] hover:bg-[#C69E47] text-white font-be-vietnam font-bold px-8 py-3 rounded-full text-lg shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-[#F2CC8F] border-4"
+              className="text-xl cursor-pointer bg-[#C69E47] hover:bg-[#C69E47] text-white font-be-vietnam font-bold px-8 py-3 rounded-full shadow-xl transition-all hover:scale-105 hover:shadow-2xl border-[#F2CC8F] border-4"
             >
               Discover the Wishes
             </button>

@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
 
           {/* Centered Quote - Third on mobile, center on desktop */}
-          <div className="flex-1 text-center md:text-center lg:text-center order-3 md:order-none w-full md:w-auto">
+          <div className="mt-4 md:mt-0 flex-1 text-center md:text-center lg:text-center order-3 md:order-none w-full md:w-auto">
             <h2 className="font-lobster text-xl sm:text-2xl leading-tight bg-gradient-to-r from-[#FBE67B] to-[#FCFBE7] bg-clip-text text-transparent">
               Together, Let's Make This Christmas Brighter.
             </h2>
@@ -72,7 +72,7 @@ export default function Footer() {
                 cursor: "pointer",
                 transition: "all 0.3s ease",
               }}
-              className="py-2 px-6 mt-4 mb-4"
+              className="py-2 px-6 mt-8 mb-4"
               onClick={() =>
                 window.open("https://www.cncf.org/donate", "_blank")
               }
@@ -104,7 +104,7 @@ export default function Footer() {
         </div>
 
         {/* Main Content: Contact, About, Get Involved, Resources */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-8 mt-8">
           {/* Contact Us - Spans 2 columns on desktop */}
           <div className="lg:col-span-2">
             <h3 className="font-bold text-white text-lg mb-3 text-center sm:text-left">
