@@ -221,6 +221,7 @@ export default function JoinUs() {
               color: "white",
               textAlign: "left",
             }}
+            className=""
           >
             <h2
               style={{
@@ -294,7 +295,7 @@ export default function JoinUs() {
           </div>
 
           {/* Image Container with Decorations */}
-          <div className="relative flex-1 min-w-[300px] max-w-[500px] mb-0">
+          <div className="relative mt-15 md:mt-0 flex-1 min-w-[300px] max-w-[500px] mb-0">
             <div className="relative overflow-hidden inline-block">
               <Image
                 unoptimized
