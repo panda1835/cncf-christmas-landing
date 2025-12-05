@@ -134,7 +134,11 @@ export default function JoinUs() {
                 fontFamily: "var(--font-lobster)",
                 fontWeight: "400",
                 margin: "0 0 1.5rem 0",
-                color: "#FFD700",
+                background:
+                  "linear-gradient(to bottom, #FBE67B 0%, #FCFBE7 50%, #F7D14E 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
               }}
               className="text-4xl"
             >
@@ -189,7 +193,9 @@ export default function JoinUs() {
                 cursor: "pointer",
                 transition: "all 0.3s ease",
               }}
-              onClick={() => window.open("https://www.cncf.org/donate", "_blank")}
+              onClick={() =>
+                window.open("https://www.cncf.org/donate", "_blank")
+              }
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow =
@@ -201,10 +207,9 @@ export default function JoinUs() {
                   "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
               }}
             >
-              Give a $10 Gift
+              Give a Christmas Gift
             </button>
           </div>
-          
         </div>
 
         {/* Second Section - Offline Donations (Text Left, Image Right) */}
@@ -222,11 +227,15 @@ export default function JoinUs() {
                 fontFamily: "var(--font-lobster)",
                 fontWeight: "400",
                 margin: "0 0 1.5rem 0",
-                color: "#FFD700",
+                background:
+                  "linear-gradient(to bottom, #FBE67B 0%, #FCFBE7 50%, #F7D14E 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
               }}
               className="text-4xl"
             >
-              Offline - Wish Trees
+              Offline - Wishing Trees Campaign only in Ho Chi Minh City, Vietnam
             </h2>
 
             <ul
@@ -285,18 +294,18 @@ export default function JoinUs() {
           </div>
 
           {/* Image Container with Decorations */}
-            <div className="relative flex-1 min-w-[300px] max-w-[500px] mb-0">
-              <div className="relative overflow-hidden inline-block">
-                <Image
-                  unoptimized
-                  src="/Joinus-image1.png"
-                  alt="Offline Wish Trees"
-                  width={800}
-                  height={600}
-                  className="object-cover"
-                />
-              </div>
+          <div className="relative flex-1 min-w-[300px] max-w-[500px] mb-0">
+            <div className="relative overflow-hidden inline-block">
+              <Image
+                unoptimized
+                src="/Joinus-image1.png"
+                alt="Offline Wish Trees"
+                width={800}
+                height={600}
+                className="object-cover"
+              />
             </div>
+          </div>
         </div>
       </div>
 
@@ -364,4 +373,3 @@ export default function JoinUs() {
     </section>
   );
 }
-

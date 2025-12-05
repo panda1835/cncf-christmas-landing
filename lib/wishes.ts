@@ -72,7 +72,7 @@ export const wishes: WishItem[] = [
     id: 10,
     programme: "Education Sponsorship Programme",
     message:
-      "I am from the Education Sponsorship Programme. I travel long distances to school, but I never let anything stop me from learning.",
-    wish: "This Christmas, I wish for a high school school kit so I can continue my studies with confidence.",
+      "I am part of the Education Sponsorship Programme. Each day I travel a long distance to school, yet I never allow anything to hinder my learning.",
+    wish: "This Christmas, I wish for a high-school study kit so that I may continue my education with confidence and give my very best.",
   },
 ];

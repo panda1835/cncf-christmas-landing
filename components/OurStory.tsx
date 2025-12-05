@@ -122,7 +122,7 @@ export default function Letter() {
         >
           {/* "Our Story" Title Banner */}
           <div
-            className="mb-4 md:mb-8"
+            className="mb-4 md:mb-8 px-2"
             style={{
               animation: "fadeInDown 1s ease-out",
             }}
@@ -131,8 +131,8 @@ export default function Letter() {
               unoptimized
               src="/Letter-title.svg"
               alt="Our Story"
-              width={280}
-              height={80}
+              width={780}
+              height={200}
               style={{
                 filter: "drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3))",
                 animation: "gentle-sway 3s ease-in-out infinite",
@@ -175,22 +175,44 @@ export default function Letter() {
             cursor: "pointer",
             zIndex: 1,
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "scale(1.02) translateY(-8px)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "scale(1) translateY(0)";
-          }}
           className="w-full"
         >
-          <div className="relative w-full h-[180px] sm:h-[320px] md:h-[360px] overflow-hidden filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+          <div className="relative w-full flex flex-col filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)]">
+            {/* Desktop Background 1 */}
             <Image
               unoptimized
-              src="/Letter-background.png"
-              alt="Christmas Envelope"
+              src="/Letter-background1.png"
+              alt="Christmas Envelope Background 1"
               width={1200}
-              height={360}
-              className="w-full h-full object-cover object-bottom"
+              height={180}
+              className="hidden md:block w-full h-auto object-cover"
+            />
+            {/* Mobile Background 1 */}
+            <Image
+              unoptimized
+              src="/Letter-background1-mobile.png"
+              alt="Christmas Envelope Background 1"
+              width={1200}
+              height={180}
+              className="block md:hidden w-full h-auto object-cover"
+            />
+            {/* Desktop Background 2 */}
+            <Image
+              unoptimized
+              src="/Letter-background2.png"
+              alt="Christmas Envelope Background 2"
+              width={1200}
+              height={180}
+              className="hidden md:block w-full h-auto object-cover"
+            />
+            {/* Mobile Background 2 */}
+            <Image
+              unoptimized
+              src="/Letter-background2-mobile.png"
+              alt="Christmas Envelope Background 2"
+              width={1200}
+              height={180}
+              className="block md:hidden w-full h-auto object-cover"
             />
           </div>
         </div>

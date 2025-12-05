@@ -54,9 +54,8 @@ export default function Footer() {
               height={200}
             />
           </button> */}
-          <button
+            <button
               style={{
-                
                 background:
                   "linear-gradient(to bottom, #EF4444 0%, #B91C1C 100%)",
                 borderRadius: "20px",
@@ -74,7 +73,9 @@ export default function Footer() {
                 transition: "all 0.3s ease",
               }}
               className="py-2 px-6 mt-4 mb-4"
-              onClick={() => window.open("https://www.cncf.org/donate", "_blank")}
+              onClick={() =>
+                window.open("https://www.cncf.org/donate", "_blank")
+              }
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow =
@@ -86,7 +87,7 @@ export default function Footer() {
                   "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
               }}
             >
-              Give a $10 Gift
+              Give a Christmas Gift
             </button>
           </div>
 
@@ -100,7 +101,6 @@ export default function Footer() {
               height={200}
             />
           </div>
-          
         </div>
 
         {/* Main Content: Contact, About, Get Involved, Resources */}
@@ -110,12 +110,14 @@ export default function Footer() {
             <h3 className="font-bold text-white text-lg mb-3 text-center sm:text-left">
               Contact Us
             </h3>
-            
+
             {/* Two column layout for Vietnam and Mongolia on desktop, single column on mobile */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
               {/* Vietnam */}
               <div>
-                <h4 className="font-semibold text-white text-md mb-2 text-center lg:text-left">VIETNAM</h4>
+                <h4 className="font-semibold text-white text-md mb-2 text-center lg:text-left">
+                  VIETNAM
+                </h4>
                 <ul className="space-y-2 text-sm text-[#c9d3cb] text-center lg:text-left">
                   <li className="flex items-start justify-center lg:justify-start gap-2">
                     <span className="mt-1 shrink-0">
@@ -165,7 +167,9 @@ export default function Footer() {
 
               {/* Mongolia */}
               <div>
-                <h4 className="font-semibold text-white text-md mb-2 text-center lg:text-left">MONGOLIA</h4>
+                <h4 className="font-semibold text-white text-md mb-2 text-center lg:text-left">
+                  MONGOLIA
+                </h4>
                 <ul className="space-y-2 text-sm text-[#c9d3cb] text-center lg:text-left">
                   <li className="flex items-start justify-center lg:justify-start gap-2">
                     <span className="mt-1 shrink-0">
@@ -231,7 +235,10 @@ export default function Footer() {
                     />
                   </svg>
                 </span>
-                <a href="mailto:international@cncf.org" className="hover:underline">
+                <a
+                  href="mailto:international@cncf.org"
+                  className="hover:underline"
+                >
                   international@cncf.org
                 </a>
               </li>
@@ -274,7 +281,12 @@ export default function Footer() {
                     />
                   </svg>
                 </span>
-                <a href="http://www.cncf.org" className="hover:underline" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="http://www.cncf.org"
+                  className="hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   www.cncf.org
                 </a>
               </li>
@@ -397,8 +409,6 @@ export default function Footer() {
           Made with Love to bring joy to children across Vietnam and Mongolia.
         </div>
       </div>
-
-
     </footer>
   );
 }
