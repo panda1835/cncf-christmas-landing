@@ -293,7 +293,7 @@ export default function CTA() {
                   margin: "0 0 1.5rem 0",
                 }}
               >
-                Give a $10 Gift
+                Give a Christmas Gift
               </h3>
               <button
                 onClick={() =>

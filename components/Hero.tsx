@@ -212,15 +212,16 @@ export default function Hero() {
                 backgroundClip: "text",
               }}
             >
-              Sparkle This Christmas.
+              Sparkle This Christmas
             </h1>
           </div>
 
           {/* Description */}
           <div className="text-center mb-8 max-w-7xl mx-auto">
             <p className="relative z-10 font-be-vietnam px-5 text-white text-lg leading-relaxed">
-              For 36 years, CNCF has helped create Christmas miracles for
-              vulnerable children across Vietnam and Mongolia.
+              For 36 years, the Christina Noble Children's Foundation (CNCF) has
+              helped create Christmas miracles for vulnerable children across
+              Vietnam and Mongolia.
               <br />
               This year, you can be part of that miracle. Just one gift from you
               can turn a difficult childhood into a Christmas they will remember
@@ -673,14 +674,14 @@ export default function Hero() {
         {/* Letter Popup - First Visit Only */}
         {showLetterPopup && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md animate-fade-in"
+            className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md animate-fade-in p-4"
             onClick={() => {
               setShowLetterPopup(false);
               setIsLetterClosed(true);
             }}
           >
             <div
-              className="relative max-w-2xl w-full mx-4 animate-zoom-in"
+              className="relative max-w-2xl w-full max-h-[90vh] animate-zoom-in"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Close Button */}
@@ -708,14 +709,14 @@ export default function Hero() {
               </button>
 
               {/* Letter Image */}
-              <div className="relative w-full">
+              <div className="relative w-full h-full flex items-center justify-center">
                 <Image
                   unoptimized
                   src="/Letter-letter.svg"
                   alt="Christmas Letter"
-                  width={800}
-                  height={600}
-                  className="w-full h-auto"
+                  width={600}
+                  height={300}
+                  className="w-full h-auto max-h-[90vh] object-contain"
                 />
               </div>
             </div>
@@ -776,7 +777,7 @@ export default function Hero() {
                     </h2>
 
                     {/* Description */}
-                    <p className="font-be-vietnam italic text-xs sm:text-xs md:text-sm text-center mb-4 md:mb-6 max-w-md ">
+                    <p className="font-be-vietnam text-black italic text-xs sm:text-xs md:text-sm text-center mb-4 md:mb-6 max-w-md ">
                       Each twinkling star holds a child&apos;s precious wish,
                       waiting for a kind heart to make it real.
                       <br className="" />
