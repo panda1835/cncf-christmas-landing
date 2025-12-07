@@ -195,7 +195,7 @@ export default function CTA() {
                   margin: "0 0 1.5rem 0",
                 }}
               >
-                Make a Wish Come True
+                Make A Wish Come True
               </h3>
               <button
                 onClick={() =>
@@ -292,7 +292,7 @@ export default function CTA() {
                 }}
                 className="font-be-vietnam"
               >
-                Give a Christmas Gift
+                Give A Christmas Gift
               </h3>
               <button
                 onClick={() =>
