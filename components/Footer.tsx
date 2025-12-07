@@ -87,7 +87,7 @@ export default function Footer() {
                   "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
               }}
             >
-              Give a Christmas Gift
+              Give A Christmas Gift
             </button>
           </div>
 
