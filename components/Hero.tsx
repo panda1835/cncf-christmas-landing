@@ -11,6 +11,7 @@ export default function Hero() {
   const [showLetterPopup, setShowLetterPopup] = useState(false);
   const [hasShownLetter, setHasShownLetter] = useState(false);
   const [isLetterClosed, setIsLetterClosed] = useState(false);
+  const [currentWishIndex, setCurrentWishIndex] = useState(0);
   const [currentWish, setCurrentWish] = useState(wishes[0]);
   const [currentStamp, setCurrentStamp] = useState("stamps-01.png");
   const [sprinkles, setSprinkles] = useState<
@@ -77,9 +78,10 @@ export default function Hero() {
   }, [hasShownWelcome, isLetterClosed]);
 
   const openModalWithRandomWish = () => {
-    // Get random wish
-    const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
-    setCurrentWish(randomWish);
+    // Get next wish in sequence (cycle through)
+    const nextIndex = (currentWishIndex + 1) % wishes.length;
+    setCurrentWishIndex(nextIndex);
+    setCurrentWish(wishes[nextIndex]);
 
     // Get random stamp (1, 2, or 3)
     const stampOptions = ["stamps-01.png", "stamps-02.png", "stamps-03.jpg"];
@@ -155,14 +157,21 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-row items-center justify-between gap-3 sm:gap-6">
           {/* Logo */}
           <div className="flex items-center justify-center sm:justify-start">
-            <Image
-              unoptimized
-              src="/Header-logo.svg"
-              alt="A Thousand Wishes"
-              width={300}
-              height={300}
-              className="h-40 md:h-56 w-auto"
-            />
+            <a
+              href="https://cncf.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cursor-pointer transition-transform hover:scale-105"
+            >
+              <Image
+                unoptimized
+                src="/Header-logo.svg"
+                alt="A Thousand Wishes"
+                width={300}
+                height={300}
+                className="h-40 md:h-56 w-auto"
+              />
+            </a>
           </div>
 
           {/* Right Buttons */}
@@ -201,7 +210,7 @@ export default function Hero() {
                 backgroundClip: "text",
               }}
             >
-              Help a Child&apos;s Wish
+              Help A Child&apos;s Wish
             </h1>
 
             <h1
@@ -212,7 +221,7 @@ export default function Hero() {
                 backgroundClip: "text",
               }}
             >
-              Sparkle This Christmas
+              Come True This Christmas
             </h1>
           </div>
 
@@ -243,7 +252,7 @@ export default function Hero() {
               }}
             >
               <span
-                className="bg-clip-text text-transparent text-xl"
+                className="bg-clip-text text-transparent text-xl font-be-vietnam"
                 style={{
                   backgroundImage:
                     "linear-gradient(to bottom, #FCFBE7, #F7D14E)",
@@ -628,27 +637,10 @@ export default function Hero() {
 
                 {/* Letter Content */}
                 <div className="space-y-4 font-montserrat">
-                  {/* Greeting */}
-                  <div className="">
-                    <p className="font-medium italic text-gray-600 mb-1">
-                      Dear Santa,
-                    </p>
-                  </div>
-
-                  {/* From Section */}
-
-                  <div className="space-y-2 pt-2">
-                    <div className="pb-2">
-                      <p className="text-base italic text-gray-600 font-medium  leading-relaxed">
-                        {currentWish.message}
-                      </p>
-                    </div>
-                  </div>
-
                   {/* Wish Section */}
                   <div className="space-y-2 pt-2">
                     <div className="min-h-[60px] pb-2">
-                      <p className="text-base italic text-gray-600 font-medium  leading-relaxed">
+                      <p className="text-base italic text-gray-600 font-medium leading-relaxed whitespace-pre-line">
                         {currentWish.wish}
                       </p>
                     </div>
