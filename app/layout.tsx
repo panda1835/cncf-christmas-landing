@@ -40,7 +40,7 @@ const montserrat = Montserrat({
 const siteUrl = "https://christmas.cncf.org";
 const siteName = "A Thousand Wishes | CNCF";
 const siteDescription =
-  "Join CNCF's A Thousand Wishes campaign to bring Christmas Magic and hope to underprivileged children in Vietnam and Mongolia this holiday season. Make a difference with your donation today.";
+  "Join CNCF's A Thousand Wishes campaign to bring Christmas Magic to underprivileged children in Vietnam and Mongolia.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

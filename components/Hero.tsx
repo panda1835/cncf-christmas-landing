@@ -103,15 +103,15 @@ export default function Hero() {
     >
       {/* Snowflakes/Sparkle Effect - At section level */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(80)].map((_, i) => (
           <div
             key={i}
             className="absolute animate-snowfall animate-snowfall-mobile md:animate-snowfall"
             style={{
               left: `${Math.random() * 100}%`,
               top: `-${Math.random() * 20}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${5 + Math.random() * 10}s`,
+              animationDelay: `${Math.random() * 15}s`,
+              animationDuration: `${15 + Math.random() * 10}s`,
             }}
           >
             <div
@@ -333,7 +333,7 @@ export default function Hero() {
             </div>
 
             {/* Interactive Stars - Left Side */}
-            <div className="absolute left-[3%] top-[12%] z-20">
+            <div className="absolute left-[3%] top-[5%] md:top-[12%] z-20">
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -361,7 +361,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute left-[11%] top-[38%] z-20">
+            <div className="absolute left-[11%] top-[28%] md:top-[38%] z-20">
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -393,7 +393,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute left-[6%] top-[58%] z-20">
+            <div className="absolute left-[6%] top-[48%] md:top-[58%] z-20">
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -425,7 +425,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute left-[14%] top-[82%] z-20">
+            <div className="absolute left-[14%] top-[70%] md:top-[82%] z-20">
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -458,7 +458,7 @@ export default function Hero() {
             </div>
 
             {/* Interactive Stars - Right Side */}
-            <div className="absolute right-[4%] top-[18%] z-20">
+            <div className="absolute right-[4%] top-[10%] md:top-[18%] z-20">
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -490,7 +490,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute right-[13%] top-[44%] z-20">
+            <div className="absolute right-[13%] top-[34%] md:top-[44%] z-20">
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -522,7 +522,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute right-[7%] top-[65%] z-20">
+            <div className="absolute right-[7%] top-[55%] md:top-[65%] z-20">
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -554,7 +554,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="absolute right-[16%] top-[85%] z-20">
+            <div className="absolute right-[16%] top-[75%] md:top-[85%] z-20">
               <div className="relative">
                 {/* Expanding Aura Circles */}
                 <div className="absolute inset-0 flex items-center justify-center">
