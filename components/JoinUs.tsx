@@ -233,7 +233,7 @@ export default function JoinUs() {
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
               }}
-              className="text-4xl"
+              className="text-4xl pb-1"
             >
               Offline - Wishing Trees Campaign only in Ho Chi Minh City, Vietnam
             </h2>
@@ -252,7 +252,7 @@ export default function JoinUs() {
               </li>
               <li>
                 🌟 Choose a child&apos;s wish from the tree, buy the gift, wrap
-                it, attach the wish card and return it before December 20.
+                it, attach the wish card and return it before December 20, 2025.
               </li>
             </ul>
 

@@ -232,7 +232,7 @@ export default function CTA() {
                 }}
                 className="mb-6"
               >
-                See All Wishes <span style={{ fontSize: "18px" }}>→</span>
+                See The Wishes <span style={{ fontSize: "18px" }}>→</span>
               </button>
             </div>
 
@@ -338,7 +338,7 @@ export default function CTA() {
               if (navigator.share) {
                 navigator
                   .share({
-                    title: "Help a Child Believe in Magic Again",
+                    title: "Help a Child Believe in Magic",
                     text: "This Christmas, let your kindness shine brighter than ever.",
                     url: "https://christmas.cncf.org",
                   })
