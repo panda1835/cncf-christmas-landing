@@ -147,10 +147,9 @@ export default function JoinUs() {
 
             <div
               style={{
-                fontFamily: "var(--font-be-vietnam)",
                 margin: "0 0 2rem 0",
               }}
-              className="text-lg"
+              className="text-lg font-be-vietnam"
             >
               <p style={{ marginBottom: "1rem" }}>
                 🌟 Even from miles away, you can light up a child&apos;s world.
@@ -175,7 +174,7 @@ export default function JoinUs() {
 
             <button
               style={{
-                width: "288px",
+                width: "350px",
                 height: "64px",
                 background:
                   "linear-gradient(to bottom, #EF4444 0%, #B91C1C 100%)",
@@ -188,7 +187,6 @@ export default function JoinUs() {
                 backgroundClip: "padding-box, border-box",
                 color: "white",
                 fontSize: "20px",
-                fontFamily: "var(--font-be-vietnam)",
                 fontWeight: "700",
                 cursor: "pointer",
                 transition: "all 0.3s ease",
@@ -206,8 +204,9 @@ export default function JoinUs() {
                 e.currentTarget.style.boxShadow =
                   "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
               }}
+              className="font-be-vietnam"
             >
-              Give a Christmas Gift
+              Donate Your Christmas Gift Here
             </button>
           </div>
         </div>
@@ -243,10 +242,9 @@ export default function JoinUs() {
               style={{
                 listStyle: "none",
                 padding: 0,
-                fontFamily: "var(--font-be-vietnam)",
                 margin: "0 0 2rem 0",
               }}
-              className="text-lg"
+              className="text-lg font-be-vietnam"
             >
               <li style={{ marginBottom: "0.75rem" }}>
                 🌟 Visit our partner restaurants, cafés, hotels and spas across
@@ -274,7 +272,6 @@ export default function JoinUs() {
                 backgroundClip: "padding-box, border-box",
                 color: "white",
                 fontSize: "20px",
-                fontFamily: "var(--font-be-vietnam)",
                 fontWeight: "700",
                 cursor: "pointer",
                 transition: "all 0.3s ease",
@@ -289,6 +286,7 @@ export default function JoinUs() {
                 e.currentTarget.style.boxShadow =
                   "0px 4px 4px 0px rgba(0, 0, 0, 0.25)";
               }}
+              className="font-be-vietnam"
             >
               See All Locations
             </button>

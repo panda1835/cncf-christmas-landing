@@ -67,12 +67,12 @@ export default function Footer() {
                 backgroundClip: "padding-box, border-box",
                 color: "white",
                 fontSize: "16px",
-                fontFamily: "var(--font-be-vietnam)",
+                // fontFamily: "var(--font-be-vietnam)",
                 fontWeight: "700",
                 cursor: "pointer",
                 transition: "all 0.3s ease",
               }}
-              className="py-2 px-6 mt-8 mb-4"
+              className="py-2 px-6 mt-8 mb-4 font-be-vietnam"
               onClick={() =>
                 window.open("https://www.cncf.org/donate", "_blank")
               }

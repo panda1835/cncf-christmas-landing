@@ -16,7 +16,7 @@ export default function Page() {
   useEffect(() => {
     audioRef.current = new Audio("/sound/audio.mp3");
     audioRef.current.loop = true;
-    audioRef.current.volume = 0.3;
+    audioRef.current.volume = 0.5;
 
     const handleFirstInteraction = async () => {
       try {

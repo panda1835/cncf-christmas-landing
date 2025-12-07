@@ -158,7 +158,7 @@ export default function Letter() {
                 height: "auto",
                 filter: "drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2))",
               }}
-              className="px-5 md:px-0"
+              className="px-5 md:px-0 pb-5"
             />
           </div>
         </div>

@@ -27,7 +27,7 @@ export default function CTA() {
             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)",
           }}
         >
-          Help a Child Believe in Magic Again
+          Help a Child Believe in Magic
         </h1>
       </div>
 
@@ -108,11 +108,10 @@ export default function CTA() {
           <p
             style={{
               color: "white",
-              fontFamily: "var(--font-be-vietnam)",
               fontWeight: "400",
               margin: "0 0 0.5rem 0",
             }}
-            className="text-xl md:text-2xl"
+            className="text-xl md:text-2xl font-be-vietnam"
           >
             This Christmas, let your kindness shine brighter than ever.
           </p>
@@ -121,14 +120,13 @@ export default function CTA() {
           <p
             style={{
               color: "rgba(255, 255, 255, 0.95)",
-              fontFamily: "var(--font-be-vietnam)",
               fontWeight: "300",
               fontStyle: "italic",
               margin: "0 0 3rem 0",
             }}
-            className="text-lg md:text-xl"
+            className="text-lg md:text-xl font-be-vietnam"
           >
-            You’re not giving a gift. You’re giving a childhood.
+            By Donating A Gift You Are Helping To Give Children Back Their Childhood.
           </p>
 
           {/* CTA Cards Container */}
@@ -288,10 +286,11 @@ export default function CTA() {
                 style={{
                   color: "white",
                   fontSize: "20px",
-                  fontFamily: "var(--font-be-vietnam)",
+                  // fontFamily: "var(--font-be-vietnam)",
                   fontWeight: "700",
                   margin: "0 0 1.5rem 0",
                 }}
+                className="font-be-vietnam"
               >
                 Give a Christmas Gift
               </h3>
@@ -333,40 +332,53 @@ export default function CTA() {
             </div>
           </div>
 
-          {/* Share the Magic Link */}
-          <a
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
+          {/* Share the Magic Button */}
+          <button
+            onClick={() => {
               if (navigator.share) {
-                navigator.share({
-                  title: "Help a Child Believe in Magic Again",
-                  text: "This Christmas, let your kindness shine brighter than ever.",
-                  url: window.location.href,
-                });
+                navigator
+                  .share({
+                    title: "Help a Child Believe in Magic Again",
+                    text: "This Christmas, let your kindness shine brighter than ever.",
+                    url: "https://christmas.cncf.org",
+                  })
+                  .then(() => console.log("Successful share"))
+                  .catch((error) => console.log("Error sharing", error));
               } else {
-                // Fallback: copy URL to clipboard
-                navigator.clipboard.writeText(window.location.href).then(() => {
-                  alert("Link copied to clipboard!");
-                });
+                alert("Your browser does not support sharing");
               }
             }}
             style={{
-              color: "white",
-              fontSize: "16px",
-              fontFamily: "var(--font-be-vietnam)",
-              fontWeight: "500",
-              textDecoration: "underline",
-              fontStyle: "italic",
-              transition: "opacity 0.3s ease",
-              display: "inline-block",
+              background: "transparent",
+              border: "none",
               cursor: "pointer",
+              transition: "transform 0.3s ease, opacity 0.3s ease",
+              display: "inline-block",
+              padding: "0",
+              position: "relative",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
-            onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "scale(1.05)";
+              e.currentTarget.style.opacity = "0.9";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.opacity = "1";
+            }}
+            className="cursor-pointer"
           >
-            Share the Magic &gt;
-          </a>
+            <Image
+              src="/CTA-share-magic.svg"
+              alt="Share the Magic"
+              width={200}
+              height={60}
+              style={{
+                display: "block",
+                transform: "rotate(-30deg)",
+              }}
+            />
+          </button>
+          
         </div>
         <div className="absolute bottom-0 left-0 w-full pointer-events-none">
           <svg

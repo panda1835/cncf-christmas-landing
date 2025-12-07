@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "A Thousand Wishes - CNCF",
     short_name: "Thousand Wishes",
     description:
-      "Join CNCF's A Thousand Wishes campaign to bring joy to children in Vietnam and Mongolia",
+      "Join CNCF's A Thousand Wishes campaign to bring Christmas Magic to children in Vietnam and Mongolia",
     start_url: "/",
     display: "standalone",
     background_color: "#1a472a",
