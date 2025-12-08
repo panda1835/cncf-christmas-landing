@@ -18,7 +18,7 @@ export default function Partners() {
       "jpg",
       "jpg",
       "jpg",
-      "jpg",
+      "png",
       "jpg",
       "jpg",
       "jpg",
