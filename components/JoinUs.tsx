@@ -251,8 +251,9 @@ export default function JoinUs() {
                 Ho Chi Minh City, Vietnam.
               </li>
               <li>
-                🌟 Choose a child&apos;s wish from the tree, buy the gift, wrap
-                it, attach the wish card and return it before December 20, 2025.
+                🌟 Choose a child’s wish from the Christmas trees, buy the gift,
+                wrap it up, attach the wishing card and return it to the venues
+                before December 20, 2025.
               </li>
             </ul>
 
