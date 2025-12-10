@@ -192,7 +192,8 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       className="hover:underline"
                     >
-                      Gerel Centre, 1/4 Jigjidjav Street, Ulaanbaatar 15160
+                      Chin Van G. Chagdarjav Street, 1st Khoroo, Sukhbaatar
+                      District, Ulaanbaatar 14220
                     </a>
                   </li>
                   <li className="flex items-center justify-center lg:justify-start gap-2">
