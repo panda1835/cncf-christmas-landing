@@ -126,7 +126,8 @@ export default function CTA() {
             }}
             className="text-lg md:text-xl font-be-vietnam"
           >
-            By Donating A Gift You Are Helping To Give Children Back Their Childhood.
+            By Donating A Gift You Are Helping To Give Children Back Their
+            Childhood.
           </p>
 
           {/* CTA Cards Container */}
@@ -295,9 +296,15 @@ export default function CTA() {
                 Give A Christmas Gift
               </h3>
               <button
-                onClick={() =>
-                  window.open("https://www.cncf.org/donate", "_blank")
-                }
+                onClick={() => {
+                  if (typeof window !== "undefined" && window.gtag) {
+                    window.gtag("event", "Donate button click", {
+                      event_category: "Engagement",
+                      event_label: "CTA Section - Donate Now",
+                    });
+                  }
+                  window.open("https://www.cncf.org/donate", "_blank");
+                }}
                 style={{
                   background:
                     "linear-gradient(90deg, #004D40 0%, #00B395 100%)",
@@ -378,7 +385,6 @@ export default function CTA() {
               }}
             />
           </button>
-          
         </div>
         <div className="absolute bottom-0 left-0 w-full pointer-events-none">
           <svg

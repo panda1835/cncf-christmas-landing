@@ -178,9 +178,15 @@ export default function Hero() {
           <div className="items-center gap-3 sm:gap-4 md:flex">
             {/* Gift $10 Button (image) */}
             <button
-              onClick={() =>
-                window.open("https://www.cncf.org/donate", "_blank")
-              }
+              onClick={() => {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "Donate button click", {
+                    event_category: "Engagement",
+                    event_label: "Hero Section - Gift $10 Button",
+                  });
+                }
+                window.open("https://www.cncf.org/donate", "_blank");
+              }}
               className="relative -top-5 md:-top-10 transition-transform hover:scale-105"
             >
               <Image
