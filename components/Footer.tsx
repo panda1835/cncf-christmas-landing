@@ -73,9 +73,15 @@ export default function Footer() {
                 transition: "all 0.3s ease",
               }}
               className="py-2 px-6 mt-8 mb-4 font-be-vietnam"
-              onClick={() =>
-                window.open("https://www.cncf.org/donate", "_blank")
-              }
+              onClick={() => {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "Donate button click", {
+                    event_category: "Engagement",
+                    event_label: "Footer Section - Main Button",
+                  });
+                }
+                window.open("https://www.cncf.org/donate", "_blank");
+              }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow =
@@ -381,6 +387,14 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:underline"
+                  onClick={() => {
+                    if (typeof window !== "undefined" && window.gtag) {
+                      window.gtag("event", "Donate button click", {
+                        event_category: "Engagement",
+                        event_label: "Footer Section - Links List",
+                      });
+                    }
+                  }}
                 >
                   Donate
                 </a>

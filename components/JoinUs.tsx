@@ -191,9 +191,16 @@ export default function JoinUs() {
                 cursor: "pointer",
                 transition: "all 0.3s ease",
               }}
-              onClick={() =>
-                window.open("https://www.cncf.org/donate", "_blank")
-              }
+              onClick={() => {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "Donate button click", {
+                    event_category: "Engagement",
+                    event_label:
+                      "Join Us Section - Donate Your Christmas Gift Here",
+                  });
+                }
+                window.open("https://www.cncf.org/donate", "_blank");
+              }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = "translateY(-4px)";
                 e.currentTarget.style.boxShadow =
